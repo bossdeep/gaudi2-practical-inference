@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "submissionId": "b118bbec-07d7-4838-b851-466d7bb022c9",
+  "projectId": "gaudi2-practical-inference",
+  "objectiveId": "gaudi2-practical-inference",
+  "base": {
+    "revision": 2,
+    "commit": "4c8acca3602418f3f9574d54f999af141bcde29d"
+  },
+  "workItemId": "question-topology-transfer",
+  "summary": "Transport smoke: the pinned DeepSeek V4.1 guide limits its contract to TP2×PP2",
+  "method": "Read the pinned public source document, retained its exact qualification language, and bounded the finding to the documented topology.",
+  "finding": "The pinned DeepSeek V4.1 guide describes an experimental Gaudi 2 serving contract of TP2×PP2 and explicitly says that enabling it does not establish model, numerical, memory, or performance validation. It does not provide a single-card result.",
+  "scope": "Pinned source commit 5fa3e08302716d458a82aa7d95d107e201b51d8c; DeepSeek V4.1 Flash on Gaudi 2; documented TP2×PP2 serving profile.",
+  "uncertainty": "No hardware run was performed. This is source-reported documentation and intentionally duplicates the retained topology caution for transport verification.",
+  "failedSearches": [],
+  "recommendedAction": "Do not generalize this profile to TP1; test one transferable optimization on a single card before promotion.",
+  "sources": [
+    {
+      "kind": "reference-code",
+      "title": "DeepSeek V4.1 Flash prepared execution",
+      "url": "https://github.com/1CatAI/1Cat-vLLM-Gaudi/blob/5fa3e08302716d458a82aa7d95d107e201b51d8c/docs/features/deepseek_v41.md",
+      "documentDate": null,
+      "retrievedAt": "2026-09-27T09:29:21.769029Z",
+      "exactExcerpt": "This experimental profile is under qualification. Enabling a switch is not evidence of completed model, numerical, memory or performance validation. The serving contract is Gaudi2, TP2×PP2, one request and greedy sampling.",
+      "relevance": "The excerpt bounds the documented topology and verification strength for the topology-transfer question.",
+      "contentHash": null
+    }
+  ]
+}
