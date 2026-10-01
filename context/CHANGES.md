@@ -3,18 +3,23 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 2
+acceptedRevision: 3
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
 
+## Revision 3
+
+Applied 2026-10-01T23:51:08.250Z.
+
+- State: current State revised
+
 ## Revision 2
 
 Applied 2026-09-26T16:52:33.255Z.
 
-- State: current State revised
 - Accepted Entry: `discord-gaudi2-prefill-6k4-claim` — A 1Cat-affiliated Discord participant claimed “6.4k prefill,” but the model, topology, units, benchmark definition, and measurement evidence were not stated.
 
 ## Revision 1

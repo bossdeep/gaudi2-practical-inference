@@ -1,22 +1,22 @@
 {
-  "acceptedRevision": 2,
+  "acceptedRevision": 3,
   "agentInstructionsPath": "AGENTS.md",
   "contextStartPath": "context/START.md",
   "corpusPath": "corpus/corpus.json",
-  "corpusResultHash": "153cbe2dc91bd27b388122be361af08e560a2efdea21672d08535098b468202d",
+  "corpusResultHash": "f2655564d422cec529e8c6a6566e640d1ca2692604112072a795b9e3af9f6657",
   "defaultBranch": "main",
   "objectiveId": "gaudi2-practical-inference",
   "platform": "OpenCat Research",
   "projectId": "gaudi2-practical-inference",
   "repository": "bossdeep/gaudi2-practical-inference",
   "schemaVersion": 1,
-  "siteUrl": "https://gaudi.clarion.run",
+  "siteUrl": "https://gaudi.clarion.run/projects/gaudi2-practical-inference",
   "submission": {
     "allowedPullRequestPath": "submissions/<submission-uuid>.json",
     "instructionsPath": "protocol/SUBMISSION.md",
     "schemaPath": "protocol/submission.schema.json",
     "schemaVersion": 1,
-    "siteEndpoint": "https://gaudi.clarion.run/api/github/contributions"
+    "siteEndpoint": "https://gaudi.clarion.run/api/projects/gaudi2-practical-inference/github/contributions"
   },
   "title": "Gaudi 2 practical inference"
 }

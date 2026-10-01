@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 2
+acceptedRevision: 3
 doNotEdit: true
 ---
 ---
@@ -19,7 +19,7 @@ description: Review an active or historical Entry against retained Sources, scop
 4. Search active Entries for support, contradiction, duplication, or narrower applicability. Copy typed corpus `readRequest` values exactly; never move IDs between Entry and Source namespaces.
 5. Separate observation, attributed report, inference, hypothesis, and proposed action; preserve every material unknown.
 6. Assign evidence no stronger than retained provenance and verification permit. Low verification may still support a useful, explicitly bounded Entry.
-7. Apply the retention threshold independently from the State threshold: retain only durable useful information, and change State only when the best synthesis, blocker, uncertainty, or next action changes.
+7. Apply the retention threshold independently from the Brief threshold: retain only durable useful information, and change the Brief only when a criterion's status, current answer, or open uncertainty materially changes.
 8. Merge duplicates by preserving unique provenance and superseding the redundant Entry.
 9. Withdraw invalid content; keep unresolved contradictions visible.
 10. Finish with `no_change`, `needs_input`, or the smallest reviewable Proposal. Never Apply.

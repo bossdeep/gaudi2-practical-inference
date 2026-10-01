@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 2
+acceptedRevision: 3
 doNotEdit: true
 ---
 ---
@@ -15,7 +15,7 @@ description: Reduce corpus or implementation duplication to the smallest active 
 
 1. Name the behavior or research meaning and its current owner.
 2. Find duplicate active Entries, Sources, projections, paths, and decisions.
-3. Prefer existing Objective, Source, Entry, State, Message, Run, and Proposal records.
+3. Prefer existing Objective, Source, Entry, Brief, Message, Run, and Proposal records.
 4. Merge unique scope and provenance into one active survivor; supersede duplicates instead of deleting history.
 5. Withdraw invalid records and keep contradictions visible.
 6. Derive deterministic views rather than persist another projection.

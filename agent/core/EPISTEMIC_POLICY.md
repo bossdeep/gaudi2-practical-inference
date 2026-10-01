@@ -3,21 +3,21 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 2
+acceptedRevision: 3
 doNotEdit: true
 ---
-# OpenCat Research v0.3 Epistemic Policy
+# OpenCat Research v0.5 Epistemic Policy
 
 This is the canonical policy for evaluating and retaining claims across every source, connector, topic, and run. Prompts and skills may specify workflow or provenance mechanics, but must not introduce source-specific truth standards or case-specific retention exceptions. Change epistemic behavior here as a general dimension, calibration rule, or decision threshold, then rebuild the Context Pack.
 
 ## Corpus primitives
 
-- **Objective** — the immutable goal and observable Access/Performance success criteria.
+- **Objective** — the immutable goal and observable success criteria.
 - **Source** — retained provenance: a public external origin or a private host-stamped workspace excerpt.
-- **Entry** — one bounded context, finding, question, result, decision, proposal, contradiction, or need.
-- **State** — the compact reviewed answer to the Objective.
+- **Entry** — one bounded claim, question, or decision. A claim carries evidence; a question is open work that may reference input questions; a decision is owner steering and is never evidence.
+- **Brief** — the reviewed answer to the Objective: one entry per success criterion with its status, current answer, and open uncertainty.
 
-Threads, Messages, Runs, Events, and Proposals are operational records, not corpus primitives.
+Threads, Messages, Runs, Events, and Proposals are operational records, not corpus primitives. Nor are a project’s research targets — the GitHub repositories and Discord channels it follows — or the connectors that retrieve from them: targets and connectors are owner configuration, and retrieved or submitted material keeps its citation and provenance in the Work log until a validated Proposal and explicit owner Apply make it accepted provenance.
 
 ## Independent epistemic dimensions
 
@@ -53,31 +53,32 @@ Retain and communicate only the strongest proposition entailed by the available 
 
 ## Retention and synthesis
 
-Entry admission and State synthesis have different thresholds:
+Entry admission and Brief synthesis have different thresholds:
 
-- A factual Entry may retain a relevant, novel, Source-ready proposition at the evidence level it actually earns, including `unverified`. Independent verification is not a prerequisite for honest retention.
+- A factual claim may retain a relevant, novel, Source-ready proposition at the evidence level it actually earns, including `unverified`. Independent verification is not a prerequisite for honest retention.
 - Retain a low-verification proposition only when its bounded content has durable utility; otherwise use `no_change`.
 - Use `needs_input` only when missing provenance, permission, scope, or content prevents an honest bounded record—not merely because certainty is low.
 - Prefer the smallest proposition that preserves the useful information and uncertainty. Split claims whose scopes or evidence strengths differ.
-- State is a curated synthesis, not a feed. A new Entry does not require a State change; promote it into State only when it materially changes the best supported answer, blocker, uncertainty, or next action.
-- For capped State lists such as Known and Uncertain, replace a slot only when the candidate has greater present decision value than the displaced Entry. Preserve the displacement rationale in the Proposal; chronology controls display order, not admission or synthesis priority.
+- The Brief is a curated synthesis, not a feed. A new Entry does not require a Brief change; promote it into the Brief only when it materially changes a criterion's status, current answer, or open uncertainty.
+- Each criterion's answer holds at most three statements and its uncertainty at most three claims. Replace an answer statement or uncertainty slot only when the candidate has greater present decision value than the displaced claim, and state the displacement in the Proposal.
 - Choose follow-up effort by expected information value, decision impact, and reversibility rather than confidence alone.
 
 ## Evidence rules
 
 - Assistant output is inference, never a Source.
-- A public factual Entry cites at least one Source.
-- A private-only factual Entry is unverified unless explicitly author-validated.
+- A public factual claim cites at least one Source.
+- A private-only factual claim is unverified unless explicitly author-validated.
 - Documented evidence requires an inspectable public Source.
-- Questions and Needs may be grounded through basis Entry IDs.
+- Questions may be grounded through basis Entry IDs.
+- A decision records owner steering: it never carries evidence and needs no citation.
 - Contradictions remain visible until evidence resolves them.
 
 ## Lifecycle
 
 Active Entries appear in normal projections. Semantic duplicates are merged into one active survivor; redundant Entries are superseded without losing provenance. Invalid Entries are withdrawn. Old IDs remain auditable.
 
-State links only active Entries. Historical basis links may retain inactive IDs and resolve to their active successor.
+The Brief links only active claims. Historical basis links may retain inactive IDs and resolve to their active successor.
 
-## State
+## Brief
 
-State is not a transcript dump. TLDR, primary blocker, next action, Known, and Uncertain are curated and linked to accepted Entries. What’s Next is derived from active unresolved Questions with work metadata; Inputs needed are their active `need` Entry references.
+The Brief is not a transcript dump. It records one entry per Objective success criterion, in order: its status (`open`, `partial`, or `met`), the current answer statements (each citing active claims, at most three), and the open uncertainty (at most three active unverified claims). Direction — the question queue, next action, blocker with its input questions, and steering decisions — is derived from active questions and decisions, never stored in the Brief.
