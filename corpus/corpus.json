@@ -14,12 +14,17 @@
       "appliedAt": "2026-10-01T23:51:08.250Z",
       "resultHash": "f2655564d422cec529e8c6a6566e640d1ca2692604112072a795b9e3af9f6657",
       "revision": 3
+    },
+    {
+      "appliedAt": "2026-10-02T00:02:06.675Z",
+      "resultHash": "50e365cfa80882bdaee1b41e5cb8df06ae4b1eadfeade4013decb112c8f348f6",
+      "revision": 4
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 3.",
+    "note": "Validated seed plus accepted corpus revision 4.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -1845,9 +1850,38 @@
         "benchmark-gap",
         "reproducibility"
       ]
+    },
+    {
+      "area": "serving",
+      "basisEntryIds": [
+        "discord-gaudi2-dispatch-overhead-resident-graphs"
+      ],
+      "citations": [],
+      "date": "2026-10-02",
+      "detail": "Community benchmarking revealed that unoptimized tensor-parallel execution split each generated token into ~500 small HPU graph executions, where repeated CPU dispatch and accelerator synchronization added ~35–55 ms per token. Bypassing those graph breaks by cloning tensors before communication operations reduced CPU dispatch latency below 1 ms and increased token generation from ~18 to ~26 tok/s, leaving remaining latency in inter-card communication and MoE expert dispatch.",
+      "evidence": "unverified",
+      "id": "discord-gaudi2-graph-break-tensor-clone-dispatch",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-10-02",
+      "scope": {
+        "model": "MiniMax M2.7",
+        "topology": "not-stated"
+      },
+      "statement": "Per-token HPU graph breaks in communication ops can add 35–55 ms dispatch latency, reducible below 1 ms via tensor cloning",
+      "status": "active",
+      "topics": [
+        "gaudi-2",
+        "decode",
+        "dispatch-latency",
+        "graph-breaks",
+        "tensor-parallel"
+      ]
     }
   ],
-  "generatedAt": "2026-10-01T23:51:08.250Z",
+  "generatedAt": "2026-10-02T00:02:06.675Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -1869,8 +1903,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "f2655564d422cec529e8c6a6566e640d1ca2692604112072a795b9e3af9f6657",
-  "revision": 3,
+  "resultHash": "50e365cfa80882bdaee1b41e5cb8df06ae4b1eadfeade4013decb112c8f348f6",
+  "revision": 4,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",

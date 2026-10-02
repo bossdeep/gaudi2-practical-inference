@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 3
+acceptedRevision: 4
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 4
+
+Applied 2026-10-02T00:02:06.675Z.
+
+- Accepted Entry: `discord-gaudi2-graph-break-tensor-clone-dispatch` — Per-token HPU graph breaks in communication ops can add 35–55 ms dispatch latency, reducible below 1 ms via tensor cloning
 
 ## Revision 3
 

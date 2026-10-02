@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 3
+acceptedRevision: 4
 doNotEdit: true
 ---
 # Evidence
@@ -1319,6 +1319,27 @@ The 2026-09-26 message says only “Now we have 6.4k prefill.” Nearby context 
 - Scope: topology: not-stated
 - Topics: prefill, 6.4k-claim, discord, 1cat, benchmark-gap, reproducibility
 - Basis Entries: `discord-gaudi2-dsv41-prefill-3000tps-disputed`, `discord-gaudi2-1cat-dsv41-partial`
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-gaudi2-graph-break-tensor-clone-dispatch
+
+**Per-token HPU graph breaks in communication ops can add 35–55 ms dispatch latency, reducible below 1 ms via tensor cloning**
+
+Community benchmarking revealed that unoptimized tensor-parallel execution split each generated token into ~500 small HPU graph executions, where repeated CPU dispatch and accelerator synchronization added ~35–55 ms per token. Bypassing those graph breaks by cloning tensors before communication operations reduced CPU dispatch latency below 1 ms and increased token generation from ~18 to ~26 tok/s, leaving remaining latency in inter-card communication and MoE expert dispatch.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: serving
+- Document date: 2026-10-02
+- Retrieved: 2026-10-02
+- Scope: topology: not-stated; model: MiniMax M2.7
+- Topics: gaudi-2, decode, dispatch-latency, graph-breaks, tensor-parallel
+- Basis Entries: `discord-gaudi2-dispatch-overhead-resident-graphs`
 - Omitted private support records: 1
 
 ### Citations
