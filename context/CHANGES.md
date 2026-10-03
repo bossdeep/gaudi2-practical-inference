@@ -3,12 +3,19 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 4
+acceptedRevision: 5
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 5
+
+Applied 2026-10-03T01:28:11.554Z.
+
+- Accepted Entry: `experimental-triton-gaudi2-backend-pr11545` — Experimental Triton backend for Gaudi 2 lowers TTIR to TPC-C for SynapseAI 1.24.1, but remains unmerged upstream
+- Source added: `github-pr-triton-11545` — Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub
 
 ## Revision 4
 

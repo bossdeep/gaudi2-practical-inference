@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 4
+acceptedRevision: 5
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 4. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 5. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -702,3 +702,14 @@ Merged 1CatAI/1Cat-vLLM-Gaudi PR #40 describing the general DeepSeek V4.1 prefil
 - Retrieved: 2026-09-26
 - Primary: yes
 - Selection rationale: Primary public implementation record for the merged prefill changes; directly states both the code/qualification scope and why it is not throughput proof.
+
+## github-pr-triton-11545
+
+**[Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub](https://github.com/triton-lang/triton/pull/11545)**
+
+Pull request 11545 in triton-lang/triton proposing experimental Gaudi 2 backend support via TTIR-to-TPC-C lowering for SynapseAI 1.24.1, closed unmerged by maintainers.
+
+- Kind: reference-code
+- Retrieved: 2026-09-26
+- Primary: yes
+- Selection rationale: Primary public source code PR demonstrating an experimental Triton backend targeting Gaudi2 TPC-C and SynapseAI 1.24.1.

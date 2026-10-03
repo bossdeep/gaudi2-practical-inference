@@ -11,7 +11,7 @@
           "type": "string"
         },
         "revision": {
-          "maximum": 4,
+          "maximum": 5,
           "minimum": 0,
           "type": "integer"
         }

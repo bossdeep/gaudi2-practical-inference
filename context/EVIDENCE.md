@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 4
+acceptedRevision: 5
 doNotEdit: true
 ---
 # Evidence
@@ -1345,3 +1345,26 @@ Community benchmarking revealed that unoptimized tensor-parallel execution split
 ### Citations
 
 No public citation retained.
+
+## experimental-triton-gaudi2-backend-pr11545
+
+**Experimental Triton backend for Gaudi 2 lowers TTIR to TPC-C for SynapseAI 1.24.1, but remains unmerged upstream**
+
+Triton PR #11545 ('Add experimental Gaudi2 backend support') introduced an experimental backend in third_party/gaudi that removes CUDA warp-size assumptions, lowers a subset of TTIR to TPC-C compiled via tpc-clang, and outputs content-addressed ELF artifacts for SynapseAI 1.24.1. Supported kernels include masked elementwise ops, residual RMSNorm, SiLU-and-mul, Qwen3.5 GDN specializations, and row-wise BF16-to-E4M3 dynamic quantization verified on the SynapseAI TPC simulator. MME partitioning, generic reductions, attention, and MoE were excluded. Upstream maintainers closed the PR unmerged due to backend acceptance policy, pointing to downstream repositories or triton-ext.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: software-stack
+- Document date: 2026-09-02
+- Retrieved: 2026-10-03
+- Scope: topology: single-card; precision: FP8
+- Topics: triton, tpc-c, tpc-clang, synapseai, quantization, custom-ops
+- Basis Entries: `gaudi-sw-suite-scope`, `gaudi2-repo-scope-and-baseline`
+- Omitted private support records: 0
+
+### Citations
+
+- **Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub** (`github-pr-triton-11545`)
+  - Locator: https://github.com/triton-lang/triton/pull/11545
+  - Support: Triton PR #11545 implements an experimental Gaudi2 backend lowering TTIR to TPC-C for SynapseAI 1.24.1, covering elementwise, RMSNorm, SiLU-and-mul, and FP8 quantization, but was closed unmerged by upstream maintainers.

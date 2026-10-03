@@ -19,12 +19,17 @@
       "appliedAt": "2026-10-02T00:02:06.675Z",
       "resultHash": "50e365cfa80882bdaee1b41e5cb8df06ae4b1eadfeade4013decb112c8f348f6",
       "revision": 4
+    },
+    {
+      "appliedAt": "2026-10-03T01:28:11.554Z",
+      "resultHash": "386478a3ca10bf2174ca83a3c566437f67e243b1ac39260589d21d5d7b32f217",
+      "revision": 5
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 4.",
+    "note": "Validated seed plus accepted corpus revision 5.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -1879,9 +1884,45 @@
         "graph-breaks",
         "tensor-parallel"
       ]
+    },
+    {
+      "area": "software-stack",
+      "basisEntryIds": [
+        "gaudi-sw-suite-scope",
+        "gaudi2-repo-scope-and-baseline"
+      ],
+      "citations": [
+        {
+          "note": "Triton PR #11545 implements an experimental Gaudi2 backend lowering TTIR to TPC-C for SynapseAI 1.24.1, covering elementwise, RMSNorm, SiLU-and-mul, and FP8 quantization, but was closed unmerged by upstream maintainers.",
+          "sourceId": "github-pr-triton-11545"
+        }
+      ],
+      "date": "2026-09-02",
+      "detail": "Triton PR #11545 ('Add experimental Gaudi2 backend support') introduced an experimental backend in third_party/gaudi that removes CUDA warp-size assumptions, lowers a subset of TTIR to TPC-C compiled via tpc-clang, and outputs content-addressed ELF artifacts for SynapseAI 1.24.1. Supported kernels include masked elementwise ops, residual RMSNorm, SiLU-and-mul, Qwen3.5 GDN specializations, and row-wise BF16-to-E4M3 dynamic quantization verified on the SynapseAI TPC simulator. MME partitioning, generic reductions, attention, and MoE were excluded. Upstream maintainers closed the PR unmerged due to backend acceptance policy, pointing to downstream repositories or triton-ext.",
+      "evidence": "documented",
+      "id": "experimental-triton-gaudi2-backend-pr11545",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-10-03",
+      "scope": {
+        "precision": "FP8",
+        "topology": "single-card"
+      },
+      "statement": "Experimental Triton backend for Gaudi 2 lowers TTIR to TPC-C for SynapseAI 1.24.1, but remains unmerged upstream",
+      "status": "active",
+      "topics": [
+        "triton",
+        "tpc-c",
+        "tpc-clang",
+        "synapseai",
+        "quantization",
+        "custom-ops"
+      ]
     }
   ],
-  "generatedAt": "2026-10-02T00:02:06.675Z",
+  "generatedAt": "2026-10-03T01:28:11.554Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -1903,8 +1944,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "50e365cfa80882bdaee1b41e5cb8df06ae4b1eadfeade4013decb112c8f348f6",
-  "revision": 4,
+  "resultHash": "386478a3ca10bf2174ca83a3c566437f67e243b1ac39260589d21d5d7b32f217",
+  "revision": 5,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -2600,6 +2641,17 @@
       "rankRationale": "Primary public implementation record for the merged prefill changes; directly states both the code/qualification scope and why it is not throughput proof.",
       "retrievedAt": "2026-09-26",
       "title": "[HPU] Integrate general V4.1 prefill optimizations by yangzhuxinyzx · Pull Request #40 · 1CatAI/1Cat-vLLM-Gaudi · GitHub",
+      "visibility": "public"
+    },
+    {
+      "description": "Pull request 11545 in triton-lang/triton proposing experimental Gaudi 2 backend support via TTIR-to-TPC-C lowering for SynapseAI 1.24.1, closed unmerged by maintainers.",
+      "id": "github-pr-triton-11545",
+      "kind": "reference-code",
+      "locator": "https://github.com/triton-lang/triton/pull/11545",
+      "primary": true,
+      "rankRationale": "Primary public source code PR demonstrating an experimental Triton backend targeting Gaudi2 TPC-C and SynapseAI 1.24.1.",
+      "retrievedAt": "2026-09-26",
+      "title": "Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub",
       "visibility": "public"
     }
   ],
