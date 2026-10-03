@@ -1,7 +1,7 @@
 {
   "base": {
     "commit": "0000000000000000000000000000000000000000",
-    "revision": 5
+    "revision": 6
   },
   "failedSearches": [],
   "finding": "State the strongest bounded proposition directly supported by the retained source evidence.",
@@ -18,7 +18,7 @@
       "exactExcerpt": "Primary repository file, pull request, issue, or implementation record for the cited behavior.",
       "kind": "reference-code",
       "relevance": "Explain how this source supports the finding for work item question-direct-attach.",
-      "retrievedAt": "2026-10-03T01:28:11.554Z",
+      "retrievedAt": "2026-10-03T06:40:16.205Z",
       "title": "docs/features/deepseek_v41.md",
       "url": "https://github.com/1CatAI/1Cat-vLLM-Gaudi/blob/5fa3e08302716d458a82aa7d95d107e201b51d8c/docs/features/deepseek_v41.md"
     }

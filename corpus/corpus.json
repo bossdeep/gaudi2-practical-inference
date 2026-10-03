@@ -24,12 +24,17 @@
       "appliedAt": "2026-10-03T01:28:11.554Z",
       "resultHash": "386478a3ca10bf2174ca83a3c566437f67e243b1ac39260589d21d5d7b32f217",
       "revision": 5
+    },
+    {
+      "appliedAt": "2026-10-03T06:40:16.205Z",
+      "resultHash": "6d17cace9632ceda3f3a479ab7e033a3d428f2542944b41794f8b3d7fe5f4194",
+      "revision": 6
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 5.",
+    "note": "Validated seed plus accepted corpus revision 6.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -1920,9 +1925,70 @@
         "quantization",
         "custom-ops"
       ]
+    },
+    {
+      "area": "software-stack",
+      "basisEntryIds": [],
+      "citations": [
+        {
+          "note": "Upstream vllm/config/model.py lines handling override_quantization_method and mismatch ValueError guard",
+          "sourceId": "vllm-upstream-verify-quantization"
+        }
+      ],
+      "date": "2026-10-03",
+      "detail": "In ModelConfig._verify_quantization(), upstream vLLM checks registered quantizers for an override_quantization_method() hook. If no override hook reconciles the checkpoint's quant_method with an explicit CLI quantization argument, upstream raises a ValueError on mismatch rather than silently overriding the checkpoint config.",
+      "evidence": "documented",
+      "id": "upstream-quantization-mismatch-guard",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-10-03",
+      "scope": {
+        "precision": "fp8",
+        "topology": "not-stated"
+      },
+      "statement": "Upstream vLLM ModelConfig enforces a quantization mismatch guard that raises ValueError if explicit CLI quantization differs from checkpoint quant_method unless reconciled by an override hook.",
+      "status": "active",
+      "topics": [
+        "quantization",
+        "software-stack",
+        "vllm"
+      ]
+    },
+    {
+      "area": "software-stack",
+      "basisEntryIds": [],
+      "citations": [
+        {
+          "note": "vllm_gaudi/ops/hpu_fp8.py Fp8LinearMethod.process_weights_after_loading serialized-FP8 branch",
+          "sourceId": "vllm-gaudi-hpu-fp8-ops"
+        }
+      ],
+      "date": "2026-10-03",
+      "detail": "In vllm_gaudi/ops/hpu_fp8.py, Fp8LinearMethod.process_weights_after_loading() branches on whether the checkpoint is already serialized FP8 when block_quant is false. In that branch, it takes layer.weight and layer.weight_scale, passes them through hpu_ops.process_fp8_weight_tensor_strategy (handling multiple shard scales and requantization/reconciliation as needed for scaled_mm), and transposes the weight.",
+      "evidence": "documented",
+      "id": "gaudi-plugin-serialized-fp8-branch",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-10-03",
+      "scope": {
+        "precision": "fp8",
+        "topology": "not-stated"
+      },
+      "statement": "The pinned Gaudi plugin defines a distinct non-block processing branch for already-serialized FP8 weights.",
+      "status": "active",
+      "topics": [
+        "quantization",
+        "software-stack",
+        "fp8",
+        "vllm-gaudi"
+      ]
     }
   ],
-  "generatedAt": "2026-10-03T01:28:11.554Z",
+  "generatedAt": "2026-10-03T06:40:16.205Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -1944,8 +2010,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "386478a3ca10bf2174ca83a3c566437f67e243b1ac39260589d21d5d7b32f217",
-  "revision": 5,
+  "resultHash": "6d17cace9632ceda3f3a479ab7e033a3d428f2542944b41794f8b3d7fe5f4194",
+  "revision": 6,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -2652,6 +2718,28 @@
       "rankRationale": "Primary public source code PR demonstrating an experimental Triton backend targeting Gaudi2 TPC-C and SynapseAI 1.24.1.",
       "retrievedAt": "2026-09-26",
       "title": "Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub",
+      "visibility": "public"
+    },
+    {
+      "description": "Upstream vLLM ModelConfig quantization verification logic at commit 568afb3a13806beb53bb2e6bd518269357b237c0",
+      "id": "vllm-upstream-verify-quantization",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm/568afb3a13806beb53bb2e6bd518269357b237c0/vllm/config/model.py",
+      "primary": true,
+      "rankRationale": "Primary source code implementation of upstream vLLM ModelConfig._verify_quantization.",
+      "retrievedAt": "2026-10-03",
+      "title": "model.py",
+      "visibility": "public"
+    },
+    {
+      "description": "Gaudi plugin Fp8LinearMethod implementation at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437",
+      "id": "vllm-gaudi-hpu-fp8-ops",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/ops/hpu_fp8.py",
+      "primary": true,
+      "rankRationale": "Primary source code implementation of vllm_gaudi Fp8LinearMethod.process_weights_after_loading.",
+      "retrievedAt": "2026-10-03",
+      "title": "hpu_fp8.py",
       "visibility": "public"
     }
   ],

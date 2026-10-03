@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 5
+acceptedRevision: 6
 doNotEdit: true
 ---
 ---
@@ -24,7 +24,7 @@ description: Reconcile a fully read retrieval or exact private workspace excerpt
    - Source-ready under the host provenance rules.
 8. If all four retention checks pass, propose the smallest coherent Source + Entry mutation at the evidence level earned. Add Brief or lifecycle operations only when a criterion's status, current answer, or uncertainty materially changes.
 9. Preserve topology, model, precision, software version, environment, and limitations.
-10. Promote public web/GitHub retrievals by handle so the host stamps title, canonical locator, and date. Promote Discord only after `discord_read` read the message in this Run, as a private `discord-message` Source with an exact target-message quote; cite either the context retrieval id or the `discord-message` retrieval id it was read from.
+10. Promote public web/GitHub retrievals by handle so the host stamps title, canonical locator, and date. A read retrieval holds one bounded window: any optional `exactQuote` must be a literal substring of the selected `retrievalId`'s own window, not another window from the same resource. Continue with `nextRead` and select the matching handle before quoting omitted text; never reformat or concatenate excerpts into an exact quote. Omit an unnecessary public-source quote rather than fabricate one. Promote Discord only after `discord_read` read the message in this Run, as a private `discord-message` Source with an exact target-message quote; cite either the context retrieval id or the `discord-message` retrieval id it was read from.
 11. Use `no_change` only when nothing passes all four retention checks; omit `operations` or pass `[]`. Use `needs_input` only when missing provenance, permission, scope, or content prevents an honest bounded record.
 12. For `proposal`, pass 1–20 operation-specific objects. `reason` belongs only on supersede/withdraw operations.
 13. Private provenance remains private, immutable, and host-stamped.

@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 5
+acceptedRevision: 6
 doNotEdit: true
 ---
 # Evidence
@@ -1368,3 +1368,49 @@ Triton PR #11545 ('Add experimental Gaudi2 backend support') introduced an exper
 - **Add experimental Gaudi2 backend support by yangzhuxinyzx · Pull Request #11545 · triton-lang/triton · GitHub** (`github-pr-triton-11545`)
   - Locator: https://github.com/triton-lang/triton/pull/11545
   - Support: Triton PR #11545 implements an experimental Gaudi2 backend lowering TTIR to TPC-C for SynapseAI 1.24.1, covering elementwise, RMSNorm, SiLU-and-mul, and FP8 quantization, but was closed unmerged by upstream maintainers.
+
+## upstream-quantization-mismatch-guard
+
+**Upstream vLLM ModelConfig enforces a quantization mismatch guard that raises ValueError if explicit CLI quantization differs from checkpoint quant_method unless reconciled by an override hook.**
+
+In ModelConfig._verify_quantization(), upstream vLLM checks registered quantizers for an override_quantization_method() hook. If no override hook reconciles the checkpoint's quant_method with an explicit CLI quantization argument, upstream raises a ValueError on mismatch rather than silently overriding the checkpoint config.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: software-stack
+- Document date: 2026-10-03
+- Retrieved: 2026-10-03
+- Scope: topology: not-stated; precision: fp8
+- Topics: quantization, software-stack, vllm
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+- **model.py** (`vllm-upstream-verify-quantization`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm/568afb3a13806beb53bb2e6bd518269357b237c0/vllm/config/model.py
+  - Support: Upstream vllm/config/model.py lines handling override_quantization_method and mismatch ValueError guard
+
+## gaudi-plugin-serialized-fp8-branch
+
+**The pinned Gaudi plugin defines a distinct non-block processing branch for already-serialized FP8 weights.**
+
+In vllm_gaudi/ops/hpu_fp8.py, Fp8LinearMethod.process_weights_after_loading() branches on whether the checkpoint is already serialized FP8 when block_quant is false. In that branch, it takes layer.weight and layer.weight_scale, passes them through hpu_ops.process_fp8_weight_tensor_strategy (handling multiple shard scales and requantization/reconciliation as needed for scaled_mm), and transposes the weight.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: software-stack
+- Document date: 2026-10-03
+- Retrieved: 2026-10-03
+- Scope: topology: not-stated; precision: fp8
+- Topics: quantization, software-stack, fp8, vllm-gaudi
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+- **hpu_fp8.py** (`vllm-gaudi-hpu-fp8-ops`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/ops/hpu_fp8.py
+  - Support: vllm_gaudi/ops/hpu_fp8.py Fp8LinearMethod.process_weights_after_loading serialized-FP8 branch

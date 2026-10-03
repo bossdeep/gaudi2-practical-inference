@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 5
+acceptedRevision: 6
 doNotEdit: true
 ---
 # OpenCat Research v0.5 Tool Policy
@@ -17,9 +17,9 @@ A **connector** is an access mechanism: public web, GitHub, or Discord. A **rese
 - `research_overview` — pinned Objective, Brief (per-criterion status, answer, uncertainty), derived Direction (question queue, next action, blocker with input questions, steering decisions), counts, and publication revision.
 - `research_search` — bounded search over pinned Entries and Sources, including work status.
 - `research_read` — exact pinned Brief, work queue, Entry, Source, or Context Pack reads. Entry/Source batches retain valid records and report `missingIds` instead of failing the entire call.
-- `web_search` / `web_read` — OMP public-web discovery followed by SSRF-protected HTTPS retrieval.
-- `github_search` / `github_read` — unauthenticated public GitHub search and canonical public resource retrieval. These tools provide research evidence only; they cannot use the OpenCat GitHub App, identify or synchronize the private platform repository, mutate the canonical public project repository, clone, fetch, pull, commit, push, or deploy.
-- `discord_search` / `discord_review` / `discord_read` — UI-only search, incremental channel review, and exact context reads through the dedicated authenticated profile, limited to the immutable target allowlist captured by this Run.
+- `web_search` / `web_read` — OMP public-web discovery followed by SSRF-protected HTTPS retrieval. `web_read` returns at most 24,000 UTF-16 characters per call: pass the returned `nextRead.offset` to continue when `range.truncated` is true.
+- `github_search` / `github_read` — unauthenticated public GitHub search and canonical public resource retrieval. `github_read` returns at most 24,000 UTF-16 characters per call: pass the returned `nextRead.offset` to continue when `range.truncated` is true. A `retrievalId` re-read fetches the live resource again and returns its current `resourceHash`, so separate windows are not an immutable snapshot. These tools provide research evidence only; they cannot use the OpenCat GitHub App, identify or synchronize the private platform repository, mutate the canonical public project repository, clone, fetch, pull, commit, push, or deploy.
+- `discord_search` / `discord_review` / `discord_read` — UI-only search, incremental channel review, and exact context reads through the dedicated authenticated profile, limited to the immutable target allowlist captured by this Run. `discord_read` takes exactly one of `retrievalId` (a retained project message or context handle) or `sourceId` (an accepted Discord Source in the pinned corpus). Discovery, context reads, and `research_read` Source records return copyable connector `readRequest` values; neither reference bypasses scope checks or substitutes for a fresh read.
 
 The OpenCat GitHub App is a separate host control plane. App credentials and installation tokens never enter a Run. Contributor OAuth tokens are discarded after GitHub identity resolution; the trusted login and submission transport may be attached to an untrusted work-log Message as provenance. Repository publication and pull-request ingestion are host effects, never model tools.
 

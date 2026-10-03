@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 5
+acceptedRevision: 6
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 5. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 6. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -713,3 +713,25 @@ Pull request 11545 in triton-lang/triton proposing experimental Gaudi 2 backend 
 - Retrieved: 2026-09-26
 - Primary: yes
 - Selection rationale: Primary public source code PR demonstrating an experimental Triton backend targeting Gaudi2 TPC-C and SynapseAI 1.24.1.
+
+## vllm-upstream-verify-quantization
+
+**[model.py](https://raw.githubusercontent.com/vllm-project/vllm/568afb3a13806beb53bb2e6bd518269357b237c0/vllm/config/model.py)**
+
+Upstream vLLM ModelConfig quantization verification logic at commit 568afb3a13806beb53bb2e6bd518269357b237c0
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary source code implementation of upstream vLLM ModelConfig._verify_quantization.
+
+## vllm-gaudi-hpu-fp8-ops
+
+**[hpu_fp8.py](https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/ops/hpu_fp8.py)**
+
+Gaudi plugin Fp8LinearMethod implementation at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary source code implementation of vllm_gaudi Fp8LinearMethod.process_weights_after_loading.

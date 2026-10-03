@@ -3,12 +3,21 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 5
+acceptedRevision: 6
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 6
+
+Applied 2026-10-03T06:40:16.205Z.
+
+- Accepted Entry: `gaudi-plugin-serialized-fp8-branch` — The pinned Gaudi plugin defines a distinct non-block processing branch for already-serialized FP8 weights.
+- Accepted Entry: `upstream-quantization-mismatch-guard` — Upstream vLLM ModelConfig enforces a quantization mismatch guard that raises ValueError if explicit CLI quantization differs from checkpoint quant_method unless reconciled by an override hook.
+- Source added: `vllm-gaudi-hpu-fp8-ops` — hpu_fp8.py
+- Source added: `vllm-upstream-verify-quantization` — model.py
 
 ## Revision 5
 
