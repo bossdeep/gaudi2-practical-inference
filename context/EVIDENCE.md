@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 10
+acceptedRevision: 11
 doNotEdit: true
 ---
 # Evidence
@@ -1476,6 +1476,27 @@ On 2026-11-06 the contributor reported that, with 15 streams and a 26K-token pro
 - Retrieved: 2026-11-07
 - Scope: topology: not-stated; model: Qwen3.8-27B
 - Topics: prefill, decode, batching, scheduling, chunked-prefill
+- Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-llamacpp-kv-size-graph-recompilation
+
+**A community contributor reported graph recompilation at every KV size in a real workload using a llama.cpp backend under development.**
+
+In an October 28, 2026 Discord message, the contributor said the backend performed well on benchmarks but logs showed graphs recompiling at every KV size in a real workload. Model, software versions, topology, precise KV shapes, logs, and reproducibility were not supplied in the message. Treat this as a diagnostic lead to correlate KV size and compilation events, not a general property of Gaudi or a demonstrated single-card result.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: performance
+- Document date: 2026-10-28
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated
+- Topics: graph-compilation, kv-cache, llama-cpp, decode, profiling
 - Basis Entries: none
 - Omitted private support records: 1
 

@@ -49,12 +49,17 @@
       "appliedAt": "2026-11-07T17:07:34.329Z",
       "resultHash": "e8d2a1d3177f77c872f8a6b2e4519bd3287b4c0c843743ef9ca89d448ddf2ba9",
       "revision": 10
+    },
+    {
+      "appliedAt": "2026-11-07T17:07:41.317Z",
+      "resultHash": "b8aa64a4a0831c0ca4be792f848b8a7404ae1d27f59a3af28315b3b5cee47478",
+      "revision": 11
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 10.",
+    "note": "Validated seed plus accepted corpus revision 11.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2096,9 +2101,35 @@
         "scheduling",
         "chunked-prefill"
       ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-10-28",
+      "detail": "In an October 28, 2026 Discord message, the contributor said the backend performed well on benchmarks but logs showed graphs recompiling at every KV size in a real workload. Model, software versions, topology, precise KV shapes, logs, and reproducibility were not supplied in the message. Treat this as a diagnostic lead to correlate KV size and compilation events, not a general property of Gaudi or a demonstrated single-card result.",
+      "evidence": "unverified",
+      "id": "discord-llamacpp-kv-size-graph-recompilation",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "A community contributor reported graph recompilation at every KV size in a real workload using a llama.cpp backend under development.",
+      "status": "active",
+      "topics": [
+        "graph-compilation",
+        "kv-cache",
+        "llama-cpp",
+        "decode",
+        "profiling"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:07:34.329Z",
+  "generatedAt": "2026-11-07T17:07:41.317Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2120,8 +2151,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "e8d2a1d3177f77c872f8a6b2e4519bd3287b4c0c843743ef9ca89d448ddf2ba9",
-  "revision": 10,
+  "resultHash": "b8aa64a4a0831c0ca4be792f848b8a7404ae1d27f59a3af28315b3b5cee47478",
+  "revision": 11,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",

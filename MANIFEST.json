@@ -1,156 +1,156 @@
 {
-  "acceptedRevision": 10,
-  "corpusHash": "dfc2c5020898721e7eefbb9f88359d690b623e51867bcb67bb37809335b037f6",
+  "acceptedRevision": 11,
+  "corpusHash": "458d08ad42fc51be9423f0eabddc46763618fd49e21031ffcb020abcd68654e6",
   "files": {
     ".github/copilot-instructions.md": {
       "bytes": 237,
       "role": "repository",
-      "sha256": "107a4e6ce9e491b1b1e5a7e85fe90caa90728fbbd6345dddf93c7a4374ce1b40"
+      "sha256": "6a36a151ac646f1b3a9416ddb11835ae1b95522d2d68a7db4b21a5205e4bafc2"
     },
     ".github/pull_request_template.md": {
       "bytes": 415,
       "role": "repository",
-      "sha256": "77444dbf5ccac5b596206255caa459a408ddcf1e6f4adaaae2236799b7bfe9d5"
+      "sha256": "0cf6e7732219699626cbe4f4c9cb27de930fd29c9e7218c53448d1dc08666da5"
     },
     "agent/core/BAUHAUS.md": {
       "bytes": 3209,
       "role": "agent",
-      "sha256": "58c33fc2ee0c92527f49bca84995476e1622c48e7cd1b64f4ea1b2e90416b091"
+      "sha256": "0b8c0d86a6c998e87bfa0e6b676586af24deb92f05ed2df571dbe003603e613a"
     },
     "agent/core/CONTEXT_PROTOCOL.md": {
       "bytes": 2793,
       "role": "agent",
-      "sha256": "741e767ea662ac5e3467f59c020b09dd882fe61903c997046a11d114253a523b"
+      "sha256": "abb1b32e20d6eb096e3beb65b486839ddcd55c6d54cb0391a1d3f7562bf5168b"
     },
     "agent/core/EPISTEMIC_POLICY.md": {
       "bytes": 7230,
       "role": "agent",
-      "sha256": "bbb0e1eb218616340dda47e8f2cbcee3bccb0e7a63ca8a176f073f4af7ac6ade"
+      "sha256": "c5647700094629cf94926180b23407277b79badbfc3ba4a5db64bc93a93d1b62"
     },
     "agent/core/IDENTITY.md": {
       "bytes": 873,
       "role": "agent",
-      "sha256": "e18f616d496dd90d7f5bc48de9afc39b67f57a4d50b6dcfec9a49bc68ffcef51"
+      "sha256": "b00bfc3420d0b4d62172f4b8f8ea4d4e032f5b75139e34d8fab4631906568a02"
     },
     "agent/core/OPERATING_MODEL.md": {
       "bytes": 2732,
       "role": "agent",
-      "sha256": "f0f7d8808790530d2af9ef91b4edadccf54c4e542d038f492f2709a9985e1d53"
+      "sha256": "a21364bf5126e81e508ba8c548fd917572614f04fcdec335ed768221e7666883"
     },
     "agent/core/RULES.md": {
       "bytes": 2963,
       "role": "agent",
-      "sha256": "045248f6382d6ea014af538bc1f399bf30b9974cd13b5d33651e11925e980399"
+      "sha256": "cce97bfcaf2b330f71cdcbd542e2746379fbbcba69c43153ad22e29ce8f9d244"
     },
     "agent/core/TOOL_POLICY.md": {
       "bytes": 10805,
       "role": "agent",
-      "sha256": "59eba5b89a68f4578121d51422fcaac81e93aca684ca17cc628585c8b2173246"
+      "sha256": "4429d46dae9b26c5653c047dafc928b420361dd1c0461023ff3e251cdb15f8a5"
     },
     "agent/project/IDENTITY.md": {
       "bytes": 828,
       "role": "agent",
-      "sha256": "3a83ac4ed3a4dbaaa66657c28fb2eb08845b16c57ccbda4400c222aecc9a85b0"
+      "sha256": "9397a5de3d3b9e83c7eda303bc8bb5577590a9c7af96b26f12abda9de790bb95"
     },
     "agent/prompts/research-assistant.md": {
       "bytes": 17825,
       "role": "agent",
-      "sha256": "0390bfbcc71050b8addf8856b19535737e1e463876c800e8f7dd598ad49460f3"
+      "sha256": "c9d1ccac30dc5e6502cec6d191b29074cbb21069bd1d4c0501c387a792414bf9"
     },
     "agent/skills/entropy-reduction/SKILL.md": {
       "bytes": 999,
       "role": "agent",
-      "sha256": "80a8b7662c617e3a3f11dbc3a71baea88b6d97778ac582a72f7092a0b7ecce5c"
+      "sha256": "50e8fceb2f12773ae522a6edfd75342b3d0a63cba4e48f5972c47bab057e2547"
     },
     "agent/skills/evidence-review/SKILL.md": {
       "bytes": 1708,
       "role": "agent",
-      "sha256": "f5461c9e404b5d42d8df57526626401da20a2ee71cc028fb6b844655721debdf"
+      "sha256": "b1db5d59afc9a50567f583fbf58d5eb13fabe12aeb8b1dd4b634568456ceceb3"
     },
     "agent/skills/source-ingestion/SKILL.md": {
       "bytes": 3154,
       "role": "agent",
-      "sha256": "83caa2de6ae0764e789c9f6537aee7e503773700f4a3acf1f25e04a56ed53eb7"
+      "sha256": "13528b21aac1ae49daefee039fe69a406674c13cb8e505be607fd68e76c9acf4"
     },
     "AGENTS.md": {
       "bytes": 2024,
       "role": "agent",
-      "sha256": "8e7b15064988c1e5af8aeaffdd6e9026c204a61b318091a0e239629f3d647628"
+      "sha256": "96042116c063cd9d33c4c352ac4360c97669477867b19c670ca5fe00ec5f717a"
     },
     "CLAUDE.md": {
       "bytes": 237,
       "role": "agent",
-      "sha256": "107a4e6ce9e491b1b1e5a7e85fe90caa90728fbbd6345dddf93c7a4374ce1b40"
+      "sha256": "6a36a151ac646f1b3a9416ddb11835ae1b95522d2d68a7db4b21a5205e4bafc2"
     },
     "context/CHANGES.md": {
-      "bytes": 3712,
+      "bytes": 3967,
       "role": "context",
-      "sha256": "03c36d6becf974c95ac98a84be2272565b60cd1d3956a6c14a4eba44e0573998"
+      "sha256": "355094c5ffba2629754fe17b37ee8061fd6e943b580b7ad534138bbc1e5e77d3"
     },
     "context/EVIDENCE.md": {
-      "bytes": 109725,
+      "bytes": 110679,
       "role": "context",
-      "sha256": "6a9d67738ca1051d24fc96ca4af66cd3a3c85e5e774c999c2f338965e1c22106"
+      "sha256": "186f5af9b63386be8dd11d8f74cfbe502c4a1aa7131989e1f09762767b28acfc"
     },
     "context/FRONTIER.md": {
       "bytes": 9542,
       "role": "context",
-      "sha256": "157f8871f91fc647fee2930563396b4d76fbfb0cf57eb1787a83e1f8ba221f16"
+      "sha256": "1d8bc13d0132f84fb70c622aa02e396c2be7b3b9863f589c6a148963277352ca"
     },
     "context/NEEDS.md": {
       "bytes": 2446,
       "role": "context",
-      "sha256": "672d2ca6e4a27eced4adfd01c5f873d9b33d60950a7337e88d26ec8f659787b9"
+      "sha256": "f584164e87829de3a24df82015c7778fb0b3c1d8e3586c803b09b72b920fb619"
     },
     "context/OBJECTIVE.md": {
       "bytes": 630,
       "role": "context",
-      "sha256": "a56d8629e12731d4d850685bf1455e42ee46c248167f5082e41224b674c7dbcd"
+      "sha256": "0c9c51b74f9684737a1dffb54dc50405274e6bf9f311fcf994278eb65dab8500"
     },
     "context/SOURCES.md": {
       "bytes": 31546,
       "role": "context",
-      "sha256": "232271158022d7bc050c1d99576f80299694372191a45263896d1b04bb8d11b5"
+      "sha256": "cb0cbcd7be2a20eedd6869fdab4e0be5dcfad06464da6aaf12209d1d1ed2c976"
     },
     "context/START.md": {
       "bytes": 1004,
       "role": "context",
-      "sha256": "ae8ccd12d8be4575d0b05ae5aafb6139597250975266eda5ea003d8a310b0bad"
+      "sha256": "2b610b227e9d9d5aab61534c1926f98ed28d407149f560ebf34eb1fd7b9ab275"
     },
     "context/STATE.md": {
       "bytes": 5056,
       "role": "context",
-      "sha256": "4a0e8b1367089f64cc85983412d9770859d906cf362fba8e1a36755e8b8adbfe"
+      "sha256": "767257cbd88ba07a3e4308ecb8559906982b9ba3a7238bd6b518522f2ed0b99a"
     },
     "corpus/corpus.json": {
-      "bytes": 167257,
+      "bytes": 168637,
       "role": "corpus",
-      "sha256": "dfc2c5020898721e7eefbb9f88359d690b623e51867bcb67bb37809335b037f6"
+      "sha256": "458d08ad42fc51be9423f0eabddc46763618fd49e21031ffcb020abcd68654e6"
     },
     "examples/submission.json": {
       "bytes": 1565,
       "role": "protocol",
-      "sha256": "98e5346a6af6b806e7bff0e32c504d18e7dfb3fe6652ab5868a295dd657ca3b6"
+      "sha256": "c8354af98db754ee450d65f6e79482dcae00b8d8f3a8646a0d96216c4e5b8d09"
     },
     "PROJECT.json": {
       "bytes": 916,
       "role": "repository",
-      "sha256": "0f4f8a00a4e015d7bd8fba1ccacd1ac5f8a53b7fe7b10b805ce7c98b1773f775"
+      "sha256": "70f9754f6de826586b7e17eaacbe63a5d40e5e5067b9265b08811829cfffb992"
     },
     "protocol/API.md": {
       "bytes": 951,
       "role": "protocol",
-      "sha256": "c0ff2fe63fc1fabf71c20f35545c44fb2269193a9e3c96baaf075172895cbe65"
+      "sha256": "9ddbebc170535ed745277e5ab3b9c01e8b9cca39cd58616c43a6df0aabff5f5e"
     },
     "protocol/SUBMISSION.md": {
       "bytes": 1552,
       "role": "protocol",
-      "sha256": "4e708293a3e3d97590d847a5ebed009c5004cba88353ebf9bdf1b65c667136e5"
+      "sha256": "7b921f03b64ba9ac406a4e0376c6c047d03a8546619b4517640884a0eba1b2a9"
     },
     "protocol/submission.schema.json": {
       "bytes": 4256,
       "role": "protocol",
-      "sha256": "8823725142b641e46ec2fc1a252e6f9ab6ebc4bfd4eff974097b3fac11265bba"
+      "sha256": "fd2572925a00120c411741c7b1edc495a36f2477e36ca25ce9f586e3b2f09d33"
     },
     "protocol/validate_submission.py": {
       "bytes": 5241,
@@ -160,21 +160,21 @@
     "README.md": {
       "bytes": 6127,
       "role": "repository",
-      "sha256": "d91d527cd7a42f78e3c2132b3b3935f63605f8aa486f66fbadd55f6809bcd3da"
+      "sha256": "6072155321f294d15370fbce4a8453ea88f86519557417d4f706dbed7791d9de"
     },
     "submissions/README.md": {
       "bytes": 396,
       "role": "protocol",
-      "sha256": "5a310d9178058caff0e4588d11f279cf7ed0773c430051118a8e4914eeb8d289"
+      "sha256": "72991ab4001432e217dcab7626b9bb2b16338fce27cb325d182db84a388ff710"
     }
   },
-  "generatedAt": "2026-11-07T17:07:34.329Z",
+  "generatedAt": "2026-11-07T17:07:41.317Z",
   "generator": "opencat-research",
-  "harnessHash": "7e141639a5ac0d65d0da1605a13390e42cce0cda13935eb05f6145c1886a80b0",
+  "harnessHash": "a34d6d39412c6ac2d7e5e02a5d39834b4598987d55208fbb3d6f4850afbd0c93",
   "objectiveId": "gaudi2-practical-inference",
-  "packDigest": "155cbb1f0b88a4caf04827a92a345a496103c7a0644e0fd15b2be11fd0d85b14",
+  "packDigest": "9422e4545957e1e701a8537657eeb15ef563b515ea99de649f8f1745cf4c3b83",
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "e8d2a1d3177f77c872f8a6b2e4519bd3287b4c0c843743ef9ca89d448ddf2ba9",
+  "resultHash": "b8aa64a4a0831c0ca4be792f848b8a7404ae1d27f59a3af28315b3b5cee47478",
   "schemaVersion": 1,
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
   "stateRevision": 3

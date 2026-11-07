@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 10
+acceptedRevision: 11
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 11
+
+Applied 2026-11-07T17:07:41.317Z.
+
+- Accepted Entry: `discord-llamacpp-kv-size-graph-recompilation` — A community contributor reported graph recompilation at every KV size in a real workload using a llama.cpp backend under development.
 
 ## Revision 10
 
