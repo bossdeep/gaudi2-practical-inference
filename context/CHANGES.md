@@ -3,12 +3,21 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 7
+acceptedRevision: 8
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 8
+
+Applied 2026-11-07T15:56:31.793Z.
+
+- Accepted Entry: `gaudi-inc-quant-config-presence-checks` — At plugin commit b059f9c, an empty but present QUANT_CONFIG satisfies has_quant_config and selects the runner's INC finalize_calibration import branch.
+- Updated Entry: `question-quant-model` — Which quantization and model formats reliably execute on Gaudi 2 today?
+- Source added: `gaudi-b059-runner-inc-import-presence` — hpu_model_runner.py
+- Source added: `gaudi-b059-utils-quant-config-presence` — utils.py
 
 ## Revision 7
 

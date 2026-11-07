@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 7
+acceptedRevision: 8
 doNotEdit: true
 ---
 # Evidence
@@ -1245,16 +1245,16 @@ No public citation retained.
 
 **Which quantization and model formats reliably execute on Gaudi 2 today?**
 
-Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference.
+Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference. Prepare a configuration matrix with BF16/unquantized and existing FP8 quant_method=fp8 artifacts: BF16 with omitted quantization/unset QUANT_CONFIG; BF16 with inc/valid Gaudi-2 calibration JSON; FP8 with omitted quantization/unset QUANT_CONFIG; FP8 with inc/unset QUANT_CONFIG; FP8 with inc/valid JSON; repeat the latter with explicit CPU load device; and FP8 with omitted quantization/present-empty QUANT_CONFIG as a diagnostic negative control. Other rows use unspecified load device. Record checkpoint revisions, configuration, tensor layout/dtypes and artifact hashes; explicit arguments, environment state, requested and resolved method/load device; exact plugin/upstream commits and Gaudi software, PyTorch, INC and Transformers versions. Later capture configuration validation, model construction, weight loading, INC preparation/conversion if reached, HPU transfer/initialization, warm-up and fixed inference as separate stages with exceptions/tracebacks and correctness, memory, calibration and warmed throughput outcomes. Full checkpoint FP8 versus explicit inc override/rejection and converter registration/invocation remain unresolved. Preserve representative INT4 coverage in the final tested matrix; preparation is not execution evidence.
 
 - Kind: Question
 - Status: active
 - Area: quantization
-- Document date: 2026-09-25
-- Retrieved: 2026-09-25
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
 - Scope: not separately stated
 - Topics: fp8, int4, model-support, calibration
-- Basis Entries: `gaudi2-datatypes`, `quantization-backends-and-calibration`, `discord-gaudi2-quantization-gaps`
+- Basis Entries: `gaudi2-datatypes`, `quantization-backends-and-calibration`, `discord-gaudi2-quantization-gaps`, `install-pinned-source-build`, `gaudi2-vllm-coverage`, `gaudi-inc-quant-config-presence-checks`
 - Omitted private support records: 0
 
 ### Citations
@@ -1414,3 +1414,29 @@ In vllm_gaudi/ops/hpu_fp8.py, Fp8LinearMethod.process_weights_after_loading() br
 - **hpu_fp8.py** (`vllm-gaudi-hpu-fp8-ops`)
   - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/ops/hpu_fp8.py
   - Support: vllm_gaudi/ops/hpu_fp8.py Fp8LinearMethod.process_weights_after_loading serialized-FP8 branch
+
+## gaudi-inc-quant-config-presence-checks
+
+**At plugin commit b059f9c, an empty but present QUANT_CONFIG satisfies has_quant_config and selects the runner's INC finalize_calibration import branch.**
+
+utils.py has_quant_config returns true when model_config.quantization equals inc or QUANT_CONFIG is not None. hpu_model_runner.py independently imports neural_compressor.torch.quantization.finalize_calibration when QUANT_CONFIG is not None, otherwise assigning None. Thus unset and present-empty values differ at these two checks; neither check validates a configuration path. Scope is commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437. No converter registration, converter invocation, checkpoint-method resolution, or accelerator success is established; the runner response truncates before downstream dispatch. Useful for an empty-value diagnostic control, not a recommended inference configuration.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: quantization
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated
+- Topics: inc, fp8, configuration, environment, checkpoint-dispatch
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+- **utils.py** (`gaudi-b059-utils-quant-config-presence`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/utils.py
+  - Support: Complete has_quant_config predicate uses is not None.
+- **hpu_model_runner.py** (`gaudi-b059-runner-inc-import-presence`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/v1/worker/hpu_model_runner.py
+  - Support: Visible module-level conditional imports finalize_calibration for any present QUANT_CONFIG, including an empty string.

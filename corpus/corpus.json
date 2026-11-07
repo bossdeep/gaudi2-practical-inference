@@ -34,12 +34,17 @@
       "appliedAt": "2026-11-07T15:56:07.752Z",
       "resultHash": "3b92f458aedd08acb6911dd18f013fd123dca60b9bc57f8acbc8eebfa7209e07",
       "revision": 7
+    },
+    {
+      "appliedAt": "2026-11-07T15:56:31.793Z",
+      "resultHash": "3e33f029a0de29c73f7e8385765885026276af1fdfb34b60736f035cec5d2dc8",
+      "revision": 8
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 7.",
+    "note": "Validated seed plus accepted corpus revision 8.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -1733,18 +1738,21 @@
       "basisEntryIds": [
         "gaudi2-datatypes",
         "quantization-backends-and-calibration",
-        "discord-gaudi2-quantization-gaps"
+        "discord-gaudi2-quantization-gaps",
+        "install-pinned-source-build",
+        "gaudi2-vllm-coverage",
+        "gaudi-inc-quant-config-presence-checks"
       ],
       "citations": [],
-      "date": "2026-09-25",
-      "detail": "Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference.",
+      "date": "2026-10-03",
+      "detail": "Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference. Prepare a configuration matrix with BF16/unquantized and existing FP8 quant_method=fp8 artifacts: BF16 with omitted quantization/unset QUANT_CONFIG; BF16 with inc/valid Gaudi-2 calibration JSON; FP8 with omitted quantization/unset QUANT_CONFIG; FP8 with inc/unset QUANT_CONFIG; FP8 with inc/valid JSON; repeat the latter with explicit CPU load device; and FP8 with omitted quantization/present-empty QUANT_CONFIG as a diagnostic negative control. Other rows use unspecified load device. Record checkpoint revisions, configuration, tensor layout/dtypes and artifact hashes; explicit arguments, environment state, requested and resolved method/load device; exact plugin/upstream commits and Gaudi software, PyTorch, INC and Transformers versions. Later capture configuration validation, model construction, weight loading, INC preparation/conversion if reached, HPU transfer/initialization, warm-up and fixed inference as separate stages with exceptions/tracebacks and correctness, memory, calibration and warmed throughput outcomes. Full checkpoint FP8 versus explicit inc override/rejection and converter registration/invocation remain unresolved. Preserve representative INT4 coverage in the final tested matrix; preparation is not execution evidence.",
       "evidence": null,
       "id": "question-quant-model",
       "kind": "question",
       "objectiveId": "gaudi2-practical-inference",
       "origin": "curated",
       "privateEvidenceCount": 0,
-      "retrievedAt": "2026-09-25",
+      "retrievedAt": "2026-11-07",
       "statement": "Which quantization and model formats reliably execute on Gaudi 2 today?",
       "status": "active",
       "topics": [
@@ -1758,7 +1766,7 @@
         "inputEntryIds": [
           "need-gaudi2-host"
         ],
-        "nextAction": "Select representative BF16, FP8, and INT4 checkpoints and record load, correctness, memory, and throughput outcomes.",
+        "nextAction": "Prepare the artifact/configuration matrix without claiming runtime outcomes; resolve the matching upstream vLLM SHA and readable INC registration/conversion caller plus FP8-versus-explicit-inc override/rejection branch. When Gaudi 2 access is available, execute the matrix and retain stage-specific failures and load, correctness, memory, calibration and warmed throughput results.",
         "priority": 4,
         "status": "ready"
       }
@@ -1991,9 +1999,44 @@
         "fp8",
         "vllm-gaudi"
       ]
+    },
+    {
+      "area": "quantization",
+      "basisEntryIds": [],
+      "citations": [
+        {
+          "note": "Complete has_quant_config predicate uses is not None.",
+          "sourceId": "gaudi-b059-utils-quant-config-presence"
+        },
+        {
+          "note": "Visible module-level conditional imports finalize_calibration for any present QUANT_CONFIG, including an empty string.",
+          "sourceId": "gaudi-b059-runner-inc-import-presence"
+        }
+      ],
+      "date": "2026-10-03",
+      "detail": "utils.py has_quant_config returns true when model_config.quantization equals inc or QUANT_CONFIG is not None. hpu_model_runner.py independently imports neural_compressor.torch.quantization.finalize_calibration when QUANT_CONFIG is not None, otherwise assigning None. Thus unset and present-empty values differ at these two checks; neither check validates a configuration path. Scope is commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437. No converter registration, converter invocation, checkpoint-method resolution, or accelerator success is established; the runner response truncates before downstream dispatch. Useful for an empty-value diagnostic control, not a recommended inference configuration.",
+      "evidence": "documented",
+      "id": "gaudi-inc-quant-config-presence-checks",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "At plugin commit b059f9c, an empty but present QUANT_CONFIG satisfies has_quant_config and selects the runner's INC finalize_calibration import branch.",
+      "status": "active",
+      "topics": [
+        "inc",
+        "fp8",
+        "configuration",
+        "environment",
+        "checkpoint-dispatch"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T15:56:07.752Z",
+  "generatedAt": "2026-11-07T15:56:31.793Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2015,8 +2058,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "3b92f458aedd08acb6911dd18f013fd123dca60b9bc57f8acbc8eebfa7209e07",
-  "revision": 7,
+  "resultHash": "3e33f029a0de29c73f7e8385765885026276af1fdfb34b60736f035cec5d2dc8",
+  "revision": 8,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -2745,6 +2788,28 @@
       "rankRationale": "Primary source code implementation of vllm_gaudi Fp8LinearMethod.process_weights_after_loading.",
       "retrievedAt": "2026-10-03",
       "title": "hpu_fp8.py",
+      "visibility": "public"
+    },
+    {
+      "description": "Plugin utils.py at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437; has_quant_config presence predicate.",
+      "id": "gaudi-b059-utils-quant-config-presence",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/utils.py",
+      "primary": true,
+      "rankRationale": "Primary commit-pinned implementation directly exposes the predicate; no runtime verification.",
+      "retrievedAt": "2026-10-03",
+      "title": "utils.py",
+      "visibility": "public"
+    },
+    {
+      "description": "Plugin hpu_model_runner.py at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437; visible complete module-level INC import conditional within a truncated response.",
+      "id": "gaudi-b059-runner-inc-import-presence",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/v1/worker/hpu_model_runner.py",
+      "primary": true,
+      "rankRationale": "Primary pinned code directly supports the import condition only; later conversion call sites were not readable.",
+      "retrievedAt": "2026-10-03",
+      "title": "hpu_model_runner.py",
       "visibility": "public"
     }
   ],

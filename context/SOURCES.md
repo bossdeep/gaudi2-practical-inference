@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 7
+acceptedRevision: 8
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 7. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 8. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -735,3 +735,25 @@ Gaudi plugin Fp8LinearMethod implementation at commit b059f9c95d6a07f19eb00aa06d
 - Retrieved: 2026-10-03
 - Primary: yes
 - Selection rationale: Primary source code implementation of vllm_gaudi Fp8LinearMethod.process_weights_after_loading.
+
+## gaudi-b059-utils-quant-config-presence
+
+**[utils.py](https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/utils.py)**
+
+Plugin utils.py at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437; has_quant_config presence predicate.
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary commit-pinned implementation directly exposes the predicate; no runtime verification.
+
+## gaudi-b059-runner-inc-import-presence
+
+**[hpu_model_runner.py](https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/v1/worker/hpu_model_runner.py)**
+
+Plugin hpu_model_runner.py at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437; visible complete module-level INC import conditional within a truncated response.
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary pinned code directly supports the import condition only; later conversion call sites were not readable.

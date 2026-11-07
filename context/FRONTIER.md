@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 7
+acceptedRevision: 8
 doNotEdit: true
 ---
 # Frontier
@@ -47,12 +47,12 @@ Reconcile the disputed ~3000 tok/s TP2×PP2 report with the independent ~100 tok
 
 Which quantization and model formats reliably execute on Gaudi 2 today?
 
-Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference.
+Map supported checkpoint formats, device-bound calibration, fallback paths, and validated models without conflating hardware dtype support with end-to-end quantized inference. Prepare a configuration matrix with BF16/unquantized and existing FP8 quant_method=fp8 artifacts: BF16 with omitted quantization/unset QUANT_CONFIG; BF16 with inc/valid Gaudi-2 calibration JSON; FP8 with omitted quantization/unset QUANT_CONFIG; FP8 with inc/unset QUANT_CONFIG; FP8 with inc/valid JSON; repeat the latter with explicit CPU load device; and FP8 with omitted quantization/present-empty QUANT_CONFIG as a diagnostic negative control. Other rows use unspecified load device. Record checkpoint revisions, configuration, tensor layout/dtypes and artifact hashes; explicit arguments, environment state, requested and resolved method/load device; exact plugin/upstream commits and Gaudi software, PyTorch, INC and Transformers versions. Later capture configuration validation, model construction, weight loading, INC preparation/conversion if reached, HPU transfer/initialization, warm-up and fixed inference as separate stages with exceptions/tracebacks and correctness, memory, calibration and warmed throughput outcomes. Full checkpoint FP8 versus explicit inc override/rejection and converter registration/invocation remain unresolved. Preserve representative INT4 coverage in the final tested matrix; preparation is not execution evidence.
 - Work status: ready; priority: 4
 - Definition of done: A tested compatibility matrix records load, correctness, memory, calibration, and throughput outcomes for representative BF16, FP8, and INT4 checkpoints.
-- Next action: Select representative BF16, FP8, and INT4 checkpoints and record load, correctness, memory, and throughput outcomes.
+- Next action: Prepare the artifact/configuration matrix without claiming runtime outcomes; resolve the matching upstream vLLM SHA and readable INC registration/conversion caller plus FP8-versus-explicit-inc override/rejection branch. When Gaudi 2 access is available, execute the matrix and retain stage-specific failures and load, correctness, memory, calibration and warmed throughput results.
 - Inputs: [need-gaudi2-host](context/EVIDENCE.md#need-gaudi2-host)
-- Evidence basis: [gaudi2-datatypes](context/EVIDENCE.md#gaudi2-datatypes), [quantization-backends-and-calibration](context/EVIDENCE.md#quantization-backends-and-calibration), [discord-gaudi2-quantization-gaps](context/EVIDENCE.md#discord-gaudi2-quantization-gaps)
+- Evidence basis: [gaudi2-datatypes](context/EVIDENCE.md#gaudi2-datatypes), [quantization-backends-and-calibration](context/EVIDENCE.md#quantization-backends-and-calibration), [discord-gaudi2-quantization-gaps](context/EVIDENCE.md#discord-gaudi2-quantization-gaps), [install-pinned-source-build](context/EVIDENCE.md#install-pinned-source-build), [gaudi2-vllm-coverage](context/EVIDENCE.md#gaudi2-vllm-coverage), [gaudi-inc-quant-config-presence-checks](context/EVIDENCE.md#gaudi-inc-quant-config-presence-checks)
 
 ## question-topology-transfer
 
