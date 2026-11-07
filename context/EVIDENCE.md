@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 8
+acceptedRevision: 9
 doNotEdit: true
 ---
 # Evidence
@@ -1440,3 +1440,24 @@ utils.py has_quant_config returns true when model_config.quantization equals inc
 - **hpu_model_runner.py** (`gaudi-b059-runner-inc-import-presence`)
   - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/v1/worker/hpu_model_runner.py
   - Support: Visible module-level conditional imports finalize_calibration for any present QUANT_CONFIG, including an empty string.
+
+## discord-llamacpp-layer-split-quant-handling
+
+**A contributor reported an in-development llama.cpp backend with layer or tensor splitting and on-read dequantization of sub-FP8 weights.**
+
+On 2026-10-29 the contributor said the backend was designed for layer splitting over PCIe, supported quantizations except IQ formats, stored sub-FP8 weights in HBM and dequantized on read, and used fp8_inc for INT8/FP8 and BF16 for BF16. This is an unverified development report, not proof of a repeatable PCIe setup or standalone performance; software revision and tested configuration were not specified.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: quantization
+- Document date: 2026-10-29
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated
+- Topics: llama-cpp, dequantization, pcie, layer-splitting
+- Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.

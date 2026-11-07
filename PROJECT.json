@@ -1,9 +1,9 @@
 {
-  "acceptedRevision": 8,
+  "acceptedRevision": 9,
   "agentInstructionsPath": "AGENTS.md",
   "contextStartPath": "context/START.md",
   "corpusPath": "corpus/corpus.json",
-  "corpusResultHash": "3e33f029a0de29c73f7e8385765885026276af1fdfb34b60736f035cec5d2dc8",
+  "corpusResultHash": "adf6e03d5acf3dad5599456ed39947acbadb0604a52c3065309af38be412bc67",
   "defaultBranch": "main",
   "objectiveId": "gaudi2-practical-inference",
   "platform": "OpenCat Research",

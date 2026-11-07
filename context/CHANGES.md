@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 8
+acceptedRevision: 9
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 9
+
+Applied 2026-11-07T17:07:23.686Z.
+
+- Accepted Entry: `discord-llamacpp-layer-split-quant-handling` — A contributor reported an in-development llama.cpp backend with layer or tensor splitting and on-read dequantization of sub-FP8 weights.
 
 ## Revision 8
 

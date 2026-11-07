@@ -39,12 +39,17 @@
       "appliedAt": "2026-11-07T15:56:31.793Z",
       "resultHash": "3e33f029a0de29c73f7e8385765885026276af1fdfb34b60736f035cec5d2dc8",
       "revision": 8
+    },
+    {
+      "appliedAt": "2026-11-07T17:07:23.686Z",
+      "resultHash": "adf6e03d5acf3dad5599456ed39947acbadb0604a52c3065309af38be412bc67",
+      "revision": 9
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 8.",
+    "note": "Validated seed plus accepted corpus revision 9.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2034,9 +2039,34 @@
         "environment",
         "checkpoint-dispatch"
       ]
+    },
+    {
+      "area": "quantization",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-10-29",
+      "detail": "On 2026-10-29 the contributor said the backend was designed for layer splitting over PCIe, supported quantizations except IQ formats, stored sub-FP8 weights in HBM and dequantized on read, and used fp8_inc for INT8/FP8 and BF16 for BF16. This is an unverified development report, not proof of a repeatable PCIe setup or standalone performance; software revision and tested configuration were not specified.",
+      "evidence": "unverified",
+      "id": "discord-llamacpp-layer-split-quant-handling",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "A contributor reported an in-development llama.cpp backend with layer or tensor splitting and on-read dequantization of sub-FP8 weights.",
+      "status": "active",
+      "topics": [
+        "llama-cpp",
+        "dequantization",
+        "pcie",
+        "layer-splitting"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T15:56:31.793Z",
+  "generatedAt": "2026-11-07T17:07:23.686Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2058,8 +2088,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "3e33f029a0de29c73f7e8385765885026276af1fdfb34b60736f035cec5d2dc8",
-  "revision": 8,
+  "resultHash": "adf6e03d5acf3dad5599456ed39947acbadb0604a52c3065309af38be412bc67",
+  "revision": 9,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
