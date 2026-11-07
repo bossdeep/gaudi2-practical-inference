@@ -3,12 +3,19 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 11
+acceptedRevision: 12
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 12
+
+Applied 2026-11-07T17:07:50.612Z.
+
+- Updated Entry: `quantization-backends-and-calibration` — Quantization support is INC FP8 plus INT4 AWQ/GPTQ, with device-bound calibration and MoE unification caveats
+- Source added: `inc-weight-loading-guide-2026-10-03` — Intel® Neural Compressor - vLLM Hardware Plugin for Intel® Gaudi®
 
 ## Revision 11
 

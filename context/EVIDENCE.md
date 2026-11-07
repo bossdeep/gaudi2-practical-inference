@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 11
+acceptedRevision: 12
 doNotEdit: true
 ---
 # Evidence
@@ -456,16 +456,16 @@ Warm-up runs a forward pass per bucket before the server listens; warm-up time c
 
 **Quantization support is INC FP8 plus INT4 AWQ/GPTQ, with device-bound calibration and MoE unification caveats**
 
-Three backends are documented: Intel Neural Compressor (FP8 weights and activations plus fp8_inc KV cache, requires prior calibration producing a QUANT_CONFIG JSON), AutoAWQ, and GPTQModel (INT4/INT8). Key operational constraints: FP8 inference requires calibration on the same device type as inference because scale measurements are device-dependent (Gaudi 2 scales cannot be reused on Gaudi 3 and vice versa); the INC guide states quantization is currently validated only on Llama models; FP8 compile time can cause server/RPC timeouts that must be raised; and when calibrating MoE models with expert parallelism, each rank only measures its local experts, so `-u` must be paired with `-r` to unify scales or FP8 accuracy degrades. Runtime scale patching can cut FP8 warm-up by up to 90% but costs 5–20% throughput and is unsupported for MoE/convolution.
+Three backends are documented: Intel Neural Compressor (FP8 weights and activations plus fp8_inc KV cache, requires prior calibration producing a QUANT_CONFIG JSON), AutoAWQ, and GPTQModel (INT4/INT8). Key operational constraints: FP8 inference requires calibration on the same device type as inference because scale measurements are device-dependent (Gaudi 2 scales cannot be reused on Gaudi 3 and vice versa); the INC guide states quantization is currently validated only on Llama models; FP8 compile time can cause server/RPC timeouts that must be raised; and when calibrating MoE models with expert parallelism, each rank only measures its local experts, so `-u` must be paired with `-r` to unify scales or FP8 accuracy degrades. Runtime scale patching can cut FP8 warm-up by up to 90% but costs 5–20% throughput and is unsupported for MoE/convolution. The INC en/latest guide read on 2026-10-03 additionally documents loading unquantized weights onto CPU, quantizing them there, then transferring them to HPU; its end-to-end example starts with BF16 Llama 3.1. This documents an unquantized/BF16 checkpoint plus calibration route, not universal compatibility with arbitrary prequantized FP8 checkpoints. The loading sequence has not been verified here against a release-pinned implementation or physical accelerator, and the guide does not quantify peak host memory.
 
 - Kind: Claim
 - Status: active
 - Evidence: Documented
 - Area: quantization
-- Document date: 2026-08-06
-- Retrieved: 2026-09-25
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
 - Scope: not separately stated
-- Topics: fp8, inc, calibration, awq, gptq, moe, kv-cache-quantization
+- Topics: fp8, inc, calibration, awq, gptq, moe, kv-cache-quantization, checkpoint-loading
 - Basis Entries: none
 - Omitted private support records: 0
 
@@ -477,6 +477,9 @@ Three backends are documented: Intel Neural Compressor (FP8 weights and activati
 - **Intel Neural Compressor guide** (`intel-neural-compressor-guide-5db0d37`)
   - Locator: https://docs.vllm.ai/projects/gaudi/en/latest/configuration/quantization/inc.html
   - Support: States FP8 weight/activation quantization on Gaudi 2 and 3, that quantization is validated only on Llama models today, the device-dependence of measurements, and the compile-timeout environment variables.
+- **Intel® Neural Compressor - vLLM Hardware Plugin for Intel® Gaudi®** (`inc-weight-loading-guide-2026-10-03`)
+  - Locator: https://docs.vllm.ai/projects/gaudi/en/latest/configuration/quantization/inc.html
+  - Support: Model Weight Loading Process explicitly documents unquantized CPU loading and CPU quantization before HPU transfer; the guide describes an end-to-end BF16 Llama 3.1 to FP8 example. Mutable latest documentation, not release-pinned implementation verification.
 
 ## distributed-backends-and-multinode-limits
 

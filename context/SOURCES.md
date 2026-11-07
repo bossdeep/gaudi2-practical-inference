@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 11
+acceptedRevision: 12
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 11. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 12. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -757,3 +757,14 @@ Plugin hpu_model_runner.py at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437; v
 - Retrieved: 2026-10-03
 - Primary: yes
 - Selection rationale: Primary pinned code directly supports the import condition only; later conversion call sites were not readable.
+
+## inc-weight-loading-guide-2026-10-03
+
+**[Intel® Neural Compressor - vLLM Hardware Plugin for Intel® Gaudi®](https://docs.vllm.ai/projects/gaudi/en/latest/configuration/quantization/inc.html)**
+
+Primary vLLM-Gaudi INC guide, including the documented model weight loading process, read from mutable en/latest documentation.
+
+- Kind: vendor-doc
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Direct primary documentation for the INC loading sequence; not commit-pinned code or hardware reproduction.

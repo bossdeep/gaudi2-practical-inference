@@ -54,12 +54,17 @@
       "appliedAt": "2026-11-07T17:07:41.317Z",
       "resultHash": "b8aa64a4a0831c0ca4be792f848b8a7404ae1d27f59a3af28315b3b5cee47478",
       "revision": 11
+    },
+    {
+      "appliedAt": "2026-11-07T17:07:50.612Z",
+      "resultHash": "bf1d9acb66e7df708f8772b7c7cf54efb4b868bee52f4dc529a31ed9f5821494",
+      "revision": 12
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 11.",
+    "note": "Validated seed plus accepted corpus revision 12.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -645,17 +650,21 @@
         {
           "note": "States FP8 weight/activation quantization on Gaudi 2 and 3, that quantization is validated only on Llama models today, the device-dependence of measurements, and the compile-timeout environment variables.",
           "sourceId": "intel-neural-compressor-guide-5db0d37"
+        },
+        {
+          "note": "Model Weight Loading Process explicitly documents unquantized CPU loading and CPU quantization before HPU transfer; the guide describes an end-to-end BF16 Llama 3.1 to FP8 example. Mutable latest documentation, not release-pinned implementation verification.",
+          "sourceId": "inc-weight-loading-guide-2026-10-03"
         }
       ],
-      "date": "2026-08-06",
-      "detail": "Three backends are documented: Intel Neural Compressor (FP8 weights and activations plus fp8_inc KV cache, requires prior calibration producing a QUANT_CONFIG JSON), AutoAWQ, and GPTQModel (INT4/INT8). Key operational constraints: FP8 inference requires calibration on the same device type as inference because scale measurements are device-dependent (Gaudi 2 scales cannot be reused on Gaudi 3 and vice versa); the INC guide states quantization is currently validated only on Llama models; FP8 compile time can cause server/RPC timeouts that must be raised; and when calibrating MoE models with expert parallelism, each rank only measures its local experts, so `-u` must be paired with `-r` to unify scales or FP8 accuracy degrades. Runtime scale patching can cut FP8 warm-up by up to 90% but costs 5–20% throughput and is unsupported for MoE/convolution.",
+      "date": "2026-10-03",
+      "detail": "Three backends are documented: Intel Neural Compressor (FP8 weights and activations plus fp8_inc KV cache, requires prior calibration producing a QUANT_CONFIG JSON), AutoAWQ, and GPTQModel (INT4/INT8). Key operational constraints: FP8 inference requires calibration on the same device type as inference because scale measurements are device-dependent (Gaudi 2 scales cannot be reused on Gaudi 3 and vice versa); the INC guide states quantization is currently validated only on Llama models; FP8 compile time can cause server/RPC timeouts that must be raised; and when calibrating MoE models with expert parallelism, each rank only measures its local experts, so `-u` must be paired with `-r` to unify scales or FP8 accuracy degrades. Runtime scale patching can cut FP8 warm-up by up to 90% but costs 5–20% throughput and is unsupported for MoE/convolution. The INC en/latest guide read on 2026-10-03 additionally documents loading unquantized weights onto CPU, quantizing them there, then transferring them to HPU; its end-to-end example starts with BF16 Llama 3.1. This documents an unquantized/BF16 checkpoint plus calibration route, not universal compatibility with arbitrary prequantized FP8 checkpoints. The loading sequence has not been verified here against a release-pinned implementation or physical accelerator, and the guide does not quantify peak host memory.",
       "evidence": "documented",
       "id": "quantization-backends-and-calibration",
       "kind": "claim",
       "objectiveId": "gaudi2-practical-inference",
       "origin": "seed",
       "privateEvidenceCount": 0,
-      "retrievedAt": "2026-09-25",
+      "retrievedAt": "2026-11-07",
       "statement": "Quantization support is INC FP8 plus INT4 AWQ/GPTQ, with device-bound calibration and MoE unification caveats",
       "status": "active",
       "topics": [
@@ -665,7 +674,8 @@
         "awq",
         "gptq",
         "moe",
-        "kv-cache-quantization"
+        "kv-cache-quantization",
+        "checkpoint-loading"
       ]
     },
     {
@@ -2129,7 +2139,7 @@
       ]
     }
   ],
-  "generatedAt": "2026-11-07T17:07:41.317Z",
+  "generatedAt": "2026-11-07T17:07:50.612Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2151,8 +2161,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "b8aa64a4a0831c0ca4be792f848b8a7404ae1d27f59a3af28315b3b5cee47478",
-  "revision": 11,
+  "resultHash": "bf1d9acb66e7df708f8772b7c7cf54efb4b868bee52f4dc529a31ed9f5821494",
+  "revision": 12,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -2903,6 +2913,17 @@
       "rankRationale": "Primary pinned code directly supports the import condition only; later conversion call sites were not readable.",
       "retrievedAt": "2026-10-03",
       "title": "hpu_model_runner.py",
+      "visibility": "public"
+    },
+    {
+      "description": "Primary vLLM-Gaudi INC guide, including the documented model weight loading process, read from mutable en/latest documentation.",
+      "id": "inc-weight-loading-guide-2026-10-03",
+      "kind": "vendor-doc",
+      "locator": "https://docs.vllm.ai/projects/gaudi/en/latest/configuration/quantization/inc.html",
+      "primary": true,
+      "rankRationale": "Direct primary documentation for the INC loading sequence; not commit-pinned code or hardware reproduction.",
+      "retrievedAt": "2026-10-03",
+      "title": "Intel® Neural Compressor - vLLM Hardware Plugin for Intel® Gaudi®",
       "visibility": "public"
     }
   ],
