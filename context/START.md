@@ -3,14 +3,14 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 13
+acceptedRevision: 14
 doNotEdit: true
 ---
 # Start here
 
-Accepted revision: **13**  
-Corpus result hash: `90a6973aa4ebcf06e88f40d60225ebcdd9bab8ba103c2a900c31e819acf54ffa`  
-Generated: 2026-11-07T17:08:03.706Z
+Accepted revision: **14**  
+Corpus result hash: `2f08e05ea03b01b3adf167aa6f219e8a84c68db1bd85ce24b5639efba80d0b5d`  
+Generated: 2026-11-07T17:08:10.418Z
 
 ## Reading path
 

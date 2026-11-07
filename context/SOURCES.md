@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 13
+acceptedRevision: 14
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 13. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 14. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -768,3 +768,14 @@ Primary vLLM-Gaudi INC guide, including the documented model weight loading proc
 - Retrieved: 2026-10-03
 - Primary: yes
 - Selection rationale: Direct primary documentation for the INC loading sequence; not commit-pinned code or hardware reproduction.
+
+## vllm-gaudi-vllm-stable-commit-b059f9c
+
+**[VLLM_STABLE_COMMIT](https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/VLLM_STABLE_COMMIT)**
+
+Repository file VLLM_STABLE_COMMIT at vllm-project/vllm-gaudi commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437 containing the paired upstream vLLM Git SHA.
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary repository metadata file defining the declared upstream vLLM commit for plugin commit b059f9c.

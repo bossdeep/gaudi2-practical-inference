@@ -64,12 +64,17 @@
       "appliedAt": "2026-11-07T17:08:03.706Z",
       "resultHash": "90a6973aa4ebcf06e88f40d60225ebcdd9bab8ba103c2a900c31e819acf54ffa",
       "revision": 13
+    },
+    {
+      "appliedAt": "2026-11-07T17:08:10.418Z",
+      "resultHash": "2f08e05ea03b01b3adf167aa6f219e8a84c68db1bd85ce24b5639efba80d0b5d",
+      "revision": 14
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 13.",
+    "note": "Validated seed plus accepted corpus revision 14.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2170,9 +2175,41 @@
         "oam",
         "hardware"
       ]
+    },
+    {
+      "area": "software-stack",
+      "basisEntryIds": [
+        "install-pinned-source-build"
+      ],
+      "citations": [
+        {
+          "note": "VLLM_STABLE_COMMIT at commit b059f9c contains upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0.",
+          "sourceId": "vllm-gaudi-vllm-stable-commit-b059f9c"
+        }
+      ],
+      "date": "2026-10-03",
+      "detail": "In repository vllm-project/vllm-gaudi at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437, the build metadata file VLLM_STABLE_COMMIT contains git commit SHA 568afb3a13806beb53bb2e6bd518269357b237c0. This identifies the declared upstream vLLM revision for reproducible code-level inspection and dependency tracing. This declared pin is not proof of validated end-to-end execution, build-script consumption, an installed wheel revision, or executable FP8 compatibility.",
+      "evidence": "documented",
+      "id": "vllm-gaudi-b059f9c-vllm-stable-commit-sha",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "Plugin commit b059f9c declares upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0 in VLLM_STABLE_COMMIT",
+      "status": "active",
+      "topics": [
+        "software-stack",
+        "vllm-gaudi",
+        "version-pinning",
+        "upstream-compatibility"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:08:03.706Z",
+  "generatedAt": "2026-11-07T17:08:10.418Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2194,8 +2231,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "90a6973aa4ebcf06e88f40d60225ebcdd9bab8ba103c2a900c31e819acf54ffa",
-  "revision": 13,
+  "resultHash": "2f08e05ea03b01b3adf167aa6f219e8a84c68db1bd85ce24b5639efba80d0b5d",
+  "revision": 14,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -2957,6 +2994,17 @@
       "rankRationale": "Direct primary documentation for the INC loading sequence; not commit-pinned code or hardware reproduction.",
       "retrievedAt": "2026-10-03",
       "title": "Intel® Neural Compressor - vLLM Hardware Plugin for Intel® Gaudi®",
+      "visibility": "public"
+    },
+    {
+      "description": "Repository file VLLM_STABLE_COMMIT at vllm-project/vllm-gaudi commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437 containing the paired upstream vLLM Git SHA.",
+      "id": "vllm-gaudi-vllm-stable-commit-b059f9c",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/VLLM_STABLE_COMMIT",
+      "primary": true,
+      "rankRationale": "Primary repository metadata file defining the declared upstream vLLM commit for plugin commit b059f9c.",
+      "retrievedAt": "2026-10-03",
+      "title": "VLLM_STABLE_COMMIT",
       "visibility": "public"
     }
   ],

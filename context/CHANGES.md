@@ -3,12 +3,19 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 13
+acceptedRevision: 14
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 14
+
+Applied 2026-11-07T17:08:10.418Z.
+
+- Accepted Entry: `vllm-gaudi-b059f9c-vllm-stable-commit-sha` — Plugin commit b059f9c declares upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0 in VLLM_STABLE_COMMIT
+- Source added: `vllm-gaudi-vllm-stable-commit-b059f9c` — VLLM_STABLE_COMMIT
 
 ## Revision 13
 

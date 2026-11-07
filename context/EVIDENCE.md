@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 13
+acceptedRevision: 14
 doNotEdit: true
 ---
 # Evidence
@@ -1527,3 +1527,26 @@ In community hardware discussions, contributor IPMI reported that off-the-shelf 
 ### Citations
 
 No public citation retained.
+
+## vllm-gaudi-b059f9c-vllm-stable-commit-sha
+
+**Plugin commit b059f9c declares upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0 in VLLM_STABLE_COMMIT**
+
+In repository vllm-project/vllm-gaudi at commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437, the build metadata file VLLM_STABLE_COMMIT contains git commit SHA 568afb3a13806beb53bb2e6bd518269357b237c0. This identifies the declared upstream vLLM revision for reproducible code-level inspection and dependency tracing. This declared pin is not proof of validated end-to-end execution, build-script consumption, an installed wheel revision, or executable FP8 compatibility.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: software-stack
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated
+- Topics: software-stack, vllm-gaudi, version-pinning, upstream-compatibility
+- Basis Entries: `install-pinned-source-build`
+- Omitted private support records: 0
+
+### Citations
+
+- **VLLM_STABLE_COMMIT** (`vllm-gaudi-vllm-stable-commit-b059f9c`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/VLLM_STABLE_COMMIT
+  - Support: VLLM_STABLE_COMMIT at commit b059f9c contains upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0.
