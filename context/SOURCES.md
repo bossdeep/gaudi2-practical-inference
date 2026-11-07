@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 12
+acceptedRevision: 13
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 12. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 13. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 

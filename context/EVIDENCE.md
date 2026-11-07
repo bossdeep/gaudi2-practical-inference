@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 12
+acceptedRevision: 13
 doNotEdit: true
 ---
 # Evidence
@@ -1501,6 +1501,27 @@ In an October 28, 2026 Discord message, the contributor said the backend perform
 - Scope: topology: not-stated
 - Topics: graph-compilation, kv-cache, llama-cpp, decode, profiling
 - Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-gaudi2-sp3-waterblock-compatibility
+
+**Community reports indicate AMD Socket SP3 liquid cooling blocks fit Gaudi 2 OAM modules for benchtop thermal management**
+
+In community hardware discussions, contributor IPMI reported that off-the-shelf AMD Socket SP3 water blocks physically fit and work on Gaudi 2 OAM modules (as well as MI250). This offers a practical candidate liquid cooling path for standalone bench bring-up and thermal characterization without requiring high-CFM chassis air cooling or bespoke water blocks. Independent mechanical mounting tension, VRM thermal contact, and long-term thermal behavior under 600W TDP remain to be verified.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: hardware
+- Document date: 2026-10-02
+- Retrieved: 2026-11-07
+- Scope: topology: single-card
+- Topics: cooling, thermal, sp3, oam, hardware
+- Basis Entries: `gaudi2-arch-specs`
 - Omitted private support records: 1
 
 ### Citations

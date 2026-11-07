@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 12
+acceptedRevision: 13
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 13
+
+Applied 2026-11-07T17:08:03.706Z.
+
+- Accepted Entry: `discord-gaudi2-sp3-waterblock-compatibility` — Community reports indicate AMD Socket SP3 liquid cooling blocks fit Gaudi 2 OAM modules for benchtop thermal management
 
 ## Revision 12
 

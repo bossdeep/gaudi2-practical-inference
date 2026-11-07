@@ -59,12 +59,17 @@
       "appliedAt": "2026-11-07T17:07:50.612Z",
       "resultHash": "bf1d9acb66e7df708f8772b7c7cf54efb4b868bee52f4dc529a31ed9f5821494",
       "revision": 12
+    },
+    {
+      "appliedAt": "2026-11-07T17:08:03.706Z",
+      "resultHash": "90a6973aa4ebcf06e88f40d60225ebcdd9bab8ba103c2a900c31e819acf54ffa",
+      "revision": 13
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 12.",
+    "note": "Validated seed plus accepted corpus revision 13.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2137,9 +2142,37 @@
         "decode",
         "profiling"
       ]
+    },
+    {
+      "area": "hardware",
+      "basisEntryIds": [
+        "gaudi2-arch-specs"
+      ],
+      "citations": [],
+      "date": "2026-10-02",
+      "detail": "In community hardware discussions, contributor IPMI reported that off-the-shelf AMD Socket SP3 water blocks physically fit and work on Gaudi 2 OAM modules (as well as MI250). This offers a practical candidate liquid cooling path for standalone bench bring-up and thermal characterization without requiring high-CFM chassis air cooling or bespoke water blocks. Independent mechanical mounting tension, VRM thermal contact, and long-term thermal behavior under 600W TDP remain to be verified.",
+      "evidence": "unverified",
+      "id": "discord-gaudi2-sp3-waterblock-compatibility",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "topology": "single-card"
+      },
+      "statement": "Community reports indicate AMD Socket SP3 liquid cooling blocks fit Gaudi 2 OAM modules for benchtop thermal management",
+      "status": "active",
+      "topics": [
+        "cooling",
+        "thermal",
+        "sp3",
+        "oam",
+        "hardware"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:07:50.612Z",
+  "generatedAt": "2026-11-07T17:08:03.706Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2161,8 +2194,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "bf1d9acb66e7df708f8772b7c7cf54efb4b868bee52f4dc529a31ed9f5821494",
-  "revision": 12,
+  "resultHash": "90a6973aa4ebcf06e88f40d60225ebcdd9bab8ba103c2a900c31e819acf54ffa",
+  "revision": 13,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
