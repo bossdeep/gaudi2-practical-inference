@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 9
+acceptedRevision: 10
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 10
+
+Applied 2026-11-07T17:07:34.329Z.
+
+- Accepted Entry: `discord-wright-chunked-prefill-decode-tradeoff` — A contributor reported that Wright 0.2.0's interleaved chunked prefill reduced decode stalls in a Qwen3.8-27B workload, with a throughput and first-token tradeoff.
 
 ## Revision 9
 

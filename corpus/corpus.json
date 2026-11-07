@@ -44,12 +44,17 @@
       "appliedAt": "2026-11-07T17:07:23.686Z",
       "resultHash": "adf6e03d5acf3dad5599456ed39947acbadb0604a52c3065309af38be412bc67",
       "revision": 9
+    },
+    {
+      "appliedAt": "2026-11-07T17:07:34.329Z",
+      "resultHash": "e8d2a1d3177f77c872f8a6b2e4519bd3287b4c0c843743ef9ca89d448ddf2ba9",
+      "revision": 10
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 9.",
+    "note": "Validated seed plus accepted corpus revision 10.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2064,9 +2069,36 @@
         "pcie",
         "layer-splitting"
       ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-11-06",
+      "detail": "On 2026-11-06 the contributor reported that, with 15 streams and a 26K-token prompt, the longest stop decreased from 6.6 s to 1.4 s when prefill was chunked and interleaved with decode; the report attributes approximately 3% total throughput cost and a later first token for the new prompt to time division. The card count, software pins, measurement methodology and repeatability for this Qwen comparison are not stated. The same announcement separately describes an eight-card DeepSeek workload; its topology must not be transferred to the Qwen comparison. These are unverified source-reported results, not standalone-card validation.",
+      "evidence": "unverified",
+      "id": "discord-wright-chunked-prefill-decode-tradeoff",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "model": "Qwen3.8-27B",
+        "topology": "not-stated"
+      },
+      "statement": "A contributor reported that Wright 0.2.0's interleaved chunked prefill reduced decode stalls in a Qwen3.8-27B workload, with a throughput and first-token tradeoff.",
+      "status": "active",
+      "topics": [
+        "prefill",
+        "decode",
+        "batching",
+        "scheduling",
+        "chunked-prefill"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:07:23.686Z",
+  "generatedAt": "2026-11-07T17:07:34.329Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2088,8 +2120,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "adf6e03d5acf3dad5599456ed39947acbadb0604a52c3065309af38be412bc67",
-  "revision": 9,
+  "resultHash": "e8d2a1d3177f77c872f8a6b2e4519bd3287b4c0c843743ef9ca89d448ddf2ba9",
+  "revision": 10,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",

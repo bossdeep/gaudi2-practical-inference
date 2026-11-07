@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 9
+acceptedRevision: 10
 doNotEdit: true
 ---
 # Evidence
@@ -1455,6 +1455,27 @@ On 2026-10-29 the contributor said the backend was designed for layer splitting 
 - Retrieved: 2026-11-07
 - Scope: topology: not-stated
 - Topics: llama-cpp, dequantization, pcie, layer-splitting
+- Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-wright-chunked-prefill-decode-tradeoff
+
+**A contributor reported that Wright 0.2.0's interleaved chunked prefill reduced decode stalls in a Qwen3.8-27B workload, with a throughput and first-token tradeoff.**
+
+On 2026-11-06 the contributor reported that, with 15 streams and a 26K-token prompt, the longest stop decreased from 6.6 s to 1.4 s when prefill was chunked and interleaved with decode; the report attributes approximately 3% total throughput cost and a later first token for the new prompt to time division. The card count, software pins, measurement methodology and repeatability for this Qwen comparison are not stated. The same announcement separately describes an eight-card DeepSeek workload; its topology must not be transferred to the Qwen comparison. These are unverified source-reported results, not standalone-card validation.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: performance
+- Document date: 2026-11-06
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated; model: Qwen3.8-27B
+- Topics: prefill, decode, batching, scheduling, chunked-prefill
 - Basis Entries: none
 - Omitted private support records: 1
 
