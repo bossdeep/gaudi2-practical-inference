@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 14
+acceptedRevision: 15
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 14. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 15. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -779,3 +779,25 @@ Repository file VLLM_STABLE_COMMIT at vllm-project/vllm-gaudi commit b059f9c95d6
 - Retrieved: 2026-10-03
 - Primary: yes
 - Selection rationale: Primary repository metadata file defining the declared upstream vLLM commit for plugin commit b059f9c.
+
+## vllm-gaudi-v0260-tag-commit
+
+**[d75619aed862d4ec3c37dd681beef1adbbaab98e](https://api.github.com/repos/vllm-project/vllm-gaudi/git/tags/d75619aed862d4ec3c37dd681beef1adbbaab98e)**
+
+GitHub annotated v0.26.0 tag metadata resolving plugin release to commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437.
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary repository metadata establishes exact release-to-commit lineage, not runtime validation.
+
+## vllm-gaudi-v0260-platform-inc-cpu-default
+
+**[platform.py](https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/platform.py)**
+
+Commit-pinned vllm_gaudi/platform.py; complete INC CPU-loading conditional in HpuPlatform.check_and_update_config is visible despite truncation later in the file.
+
+- Kind: reference-code
+- Retrieved: 2026-10-03
+- Primary: yes
+- Selection rationale: Primary implementation directly supports the configuration predicate and assignment; downstream conversion and execution are not established.

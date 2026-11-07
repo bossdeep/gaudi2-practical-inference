@@ -69,12 +69,17 @@
       "appliedAt": "2026-11-07T17:08:10.418Z",
       "resultHash": "2f08e05ea03b01b3adf167aa6f219e8a84c68db1bd85ce24b5639efba80d0b5d",
       "revision": 14
+    },
+    {
+      "appliedAt": "2026-11-07T17:08:17.633Z",
+      "resultHash": "c1fc1c3054c9f7f26d9b1982f2023a21375b1d20c848e88d471fe29ab65188f3",
+      "revision": 15
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 14.",
+    "note": "Validated seed plus accepted corpus revision 15.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2207,9 +2212,45 @@
         "version-pinning",
         "upstream-compatibility"
       ]
+    },
+    {
+      "area": "quantization",
+      "basisEntryIds": [],
+      "citations": [
+        {
+          "note": "Annotated v0.26.0 tag resolves to the inspected commit.",
+          "sourceId": "vllm-gaudi-v0260-tag-commit"
+        },
+        {
+          "note": "HpuPlatform.check_and_update_config contains the complete predicate, unspecified-device guard, and CPU assignment; supported_quantization lists fp8 and inc separately.",
+          "sourceId": "vllm-gaudi-v0260-platform-inc-cpu-default"
+        }
+      ],
+      "date": "2026-10-03",
+      "detail": "At plugin commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437, vllm_gaudi/platform.py:HpuPlatform.check_and_update_config sets is_inc_quant to (model_config is not None and model_config.quantization == \"inc\") or os.getenv(\"QUANT_CONFIG\"). It assigns load_config.device = \"cpu\" only when that predicate is truthy, load_config exists, and load_config.device is None; explicit load devices are preserved. The nearby comment describes CPU loading followed by quantization and device transfer to avoid direct BF16 HPU-loading OOM. The class lists fp8 and inc separately; effective quantization == \"fp8\" alone does not trigger this conditional without nonempty QUANT_CONFIG. This establishes the CPU-loading configuration leg, not downstream conversion or hardware success. How checkpoint quantization_config resolves to an effective method, the exact paired upstream commit, and the downstream loader/converter remain unresolved. No Gaudi 2 execution was performed.",
+      "evidence": "documented",
+      "id": "vllm-gaudi-v0260-inc-conditional-cpu-loading",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-11-07",
+      "scope": {
+        "precision": "INC FP8 configuration; no execution",
+        "topology": "not-stated"
+      },
+      "statement": "Plugin v0.26.0 defaults INC weight loading to CPU only when the load device is unspecified; nonempty QUANT_CONFIG also triggers this default.",
+      "status": "active",
+      "topics": [
+        "inc",
+        "fp8",
+        "cpu-weight-loading",
+        "version-pinning",
+        "checkpoint-dispatch"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:08:10.418Z",
+  "generatedAt": "2026-11-07T17:08:17.633Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2231,8 +2272,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "2f08e05ea03b01b3adf167aa6f219e8a84c68db1bd85ce24b5639efba80d0b5d",
-  "revision": 14,
+  "resultHash": "c1fc1c3054c9f7f26d9b1982f2023a21375b1d20c848e88d471fe29ab65188f3",
+  "revision": 15,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -3005,6 +3046,28 @@
       "rankRationale": "Primary repository metadata file defining the declared upstream vLLM commit for plugin commit b059f9c.",
       "retrievedAt": "2026-10-03",
       "title": "VLLM_STABLE_COMMIT",
+      "visibility": "public"
+    },
+    {
+      "description": "GitHub annotated v0.26.0 tag metadata resolving plugin release to commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437.",
+      "id": "vllm-gaudi-v0260-tag-commit",
+      "kind": "reference-code",
+      "locator": "https://api.github.com/repos/vllm-project/vllm-gaudi/git/tags/d75619aed862d4ec3c37dd681beef1adbbaab98e",
+      "primary": true,
+      "rankRationale": "Primary repository metadata establishes exact release-to-commit lineage, not runtime validation.",
+      "retrievedAt": "2026-10-03",
+      "title": "d75619aed862d4ec3c37dd681beef1adbbaab98e",
+      "visibility": "public"
+    },
+    {
+      "description": "Commit-pinned vllm_gaudi/platform.py; complete INC CPU-loading conditional in HpuPlatform.check_and_update_config is visible despite truncation later in the file.",
+      "id": "vllm-gaudi-v0260-platform-inc-cpu-default",
+      "kind": "reference-code",
+      "locator": "https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/platform.py",
+      "primary": true,
+      "rankRationale": "Primary implementation directly supports the configuration predicate and assignment; downstream conversion and execution are not established.",
+      "retrievedAt": "2026-10-03",
+      "title": "platform.py",
       "visibility": "public"
     }
   ],

@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 14
+acceptedRevision: 15
 doNotEdit: true
 ---
 # Evidence
@@ -1550,3 +1550,29 @@ In repository vllm-project/vllm-gaudi at commit b059f9c95d6a07f19eb00aa06d1ec8b8
 - **VLLM_STABLE_COMMIT** (`vllm-gaudi-vllm-stable-commit-b059f9c`)
   - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/VLLM_STABLE_COMMIT
   - Support: VLLM_STABLE_COMMIT at commit b059f9c contains upstream vLLM commit 568afb3a13806beb53bb2e6bd518269357b237c0.
+
+## vllm-gaudi-v0260-inc-conditional-cpu-loading
+
+**Plugin v0.26.0 defaults INC weight loading to CPU only when the load device is unspecified; nonempty QUANT_CONFIG also triggers this default.**
+
+At plugin commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437, vllm_gaudi/platform.py:HpuPlatform.check_and_update_config sets is_inc_quant to (model_config is not None and model_config.quantization == "inc") or os.getenv("QUANT_CONFIG"). It assigns load_config.device = "cpu" only when that predicate is truthy, load_config exists, and load_config.device is None; explicit load devices are preserved. The nearby comment describes CPU loading followed by quantization and device transfer to avoid direct BF16 HPU-loading OOM. The class lists fp8 and inc separately; effective quantization == "fp8" alone does not trigger this conditional without nonempty QUANT_CONFIG. This establishes the CPU-loading configuration leg, not downstream conversion or hardware success. How checkpoint quantization_config resolves to an effective method, the exact paired upstream commit, and the downstream loader/converter remain unresolved. No Gaudi 2 execution was performed.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: quantization
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
+- Scope: topology: not-stated; precision: INC FP8 configuration; no execution
+- Topics: inc, fp8, cpu-weight-loading, version-pinning, checkpoint-dispatch
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+- **d75619aed862d4ec3c37dd681beef1adbbaab98e** (`vllm-gaudi-v0260-tag-commit`)
+  - Locator: https://api.github.com/repos/vllm-project/vllm-gaudi/git/tags/d75619aed862d4ec3c37dd681beef1adbbaab98e
+  - Support: Annotated v0.26.0 tag resolves to the inspected commit.
+- **platform.py** (`vllm-gaudi-v0260-platform-inc-cpu-default`)
+  - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/platform.py
+  - Support: HpuPlatform.check_and_update_config contains the complete predicate, unspecified-device guard, and CPU assignment; supported_quantization lists fp8 and inc separately.

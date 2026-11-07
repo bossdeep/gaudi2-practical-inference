@@ -3,12 +3,20 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 14
+acceptedRevision: 15
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 15
+
+Applied 2026-11-07T17:08:17.633Z.
+
+- Accepted Entry: `vllm-gaudi-v0260-inc-conditional-cpu-loading` — Plugin v0.26.0 defaults INC weight loading to CPU only when the load device is unspecified; nonempty QUANT_CONFIG also triggers this default.
+- Source added: `vllm-gaudi-v0260-platform-inc-cpu-default` — platform.py
+- Source added: `vllm-gaudi-v0260-tag-commit` — d75619aed862d4ec3c37dd681beef1adbbaab98e
 
 ## Revision 14
 
