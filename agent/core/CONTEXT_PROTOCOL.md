@@ -3,10 +3,10 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 6
+acceptedRevision: 7
 doNotEdit: true
 ---
-# OpenCat Research v0.5 Context and project-pack protocol
+# OpenCat Research v0.6 Context and project-pack protocol
 
 A Run Context Pack is an immutable, content-addressed projection of one accepted corpus revision. The canonical public project repository is a complete shareable projection of that revision plus portable policy and submission protocol. Neither is a mutation surface.
 

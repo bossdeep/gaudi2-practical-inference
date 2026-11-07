@@ -3,10 +3,10 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 6
+acceptedRevision: 7
 doNotEdit: true
 ---
-# OpenCat Research v0.5 Bauhaus Policy
+# OpenCat Research v0.6 Bauhaus Policy
 
 Bauhaus means the smallest honest shape with one owner for each decision.
 
@@ -33,7 +33,7 @@ Direction is the primary work surface and a fresh projection, not a durable Inbo
 - Human UI, hosted OMP, external agents, CLI, and future clients converge on the same validated Proposal and Apply commands.
 - Keep the Research Host authoritative and clients thin.
 - Prefer fresh bounded projection over cache invalidation while the corpus remains small.
-- Preserve one active model execution globally across Research Runs and transient project-creation turns, and one successful reconciliation per Run.
+- Preserve one active model execution globally across Research Runs and transient project-creation turns, and at most one successful reconciliation per Run.
 
 ## Participation and access
 

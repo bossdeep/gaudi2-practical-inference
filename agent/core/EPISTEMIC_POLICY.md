@@ -3,10 +3,10 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 6
+acceptedRevision: 7
 doNotEdit: true
 ---
-# OpenCat Research v0.5 Epistemic Policy
+# OpenCat Research v0.6 Epistemic Policy
 
 This is the canonical policy for evaluating and retaining claims across every source, connector, topic, and run. Prompts and skills may specify workflow or provenance mechanics, but must not introduce source-specific truth standards or case-specific retention exceptions. Change epistemic behavior here as a general dimension, calibration rule, or decision threshold, then rebuild the Context Pack.
 
@@ -46,6 +46,7 @@ Retain and communicate only the strongest proposition entailed by the available 
 
 - Distinguish exact observation, attributed report, inference, hypothesis, and proposed action.
 - Preserve topology, model, precision, software version, date, limitations, visibility, and evidence strength when known.
+- Never substitute the project's target system or topology for the one actually reported. Transfer to another configuration remains an inference unless the retained evidence supports it.
 - Express missing conditions and live contradictions; never fill gaps with assumptions.
 - Match evidence labels to support and verification, not source popularity or expected usefulness.
 - Treat user-provided corrections as candidate evidence: neither accept nor dismiss them solely because they came from the user. Check retained and retrievable evidence when that can materially change the assessment.
@@ -68,7 +69,7 @@ Entry admission and Brief synthesis have different thresholds:
 - Assistant output is inference, never a Source.
 - A public factual claim cites at least one Source.
 - A private-only factual claim is unverified unless explicitly author-validated.
-- Documented evidence requires an inspectable public Source.
+- Documented evidence requires an inspectable public Source supporting the bounded proposition. Public inspectability alone establishes provenance, not the truth of a report's contents: source-reported behavior remains attributed and unverified unless the retained material supports a stronger assertion.
 - Questions may be grounded through basis Entry IDs.
 - A decision records owner steering: it never carries evidence and needs no citation.
 - Contradictions remain visible until evidence resolves them.

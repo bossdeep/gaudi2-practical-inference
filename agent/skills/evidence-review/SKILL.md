@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 6
+acceptedRevision: 7
 doNotEdit: true
 ---
 ---
@@ -22,4 +22,4 @@ description: Review an active or historical Entry against retained Sources, scop
 7. Apply the retention threshold independently from the Brief threshold: retain only durable useful information, and change the Brief only when a criterion's status, current answer, or open uncertainty materially changes.
 8. Merge duplicates by preserving unique provenance and superseding the redundant Entry.
 9. Withdraw invalid content; keep unresolved contradictions visible.
-10. Finish with `no_change`, `needs_input`, or the smallest reviewable Proposal. Never Apply.
+10. Only in a requested reconciliation phase, finish with `no_change`, `needs_input`, or the smallest reviewable Proposal; an ordinary answer needs no corpus decision. Never Apply.

@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 6
+acceptedRevision: 7
 doNotEdit: true
 ---
 # Evidence
@@ -1205,13 +1205,13 @@ No public citation retained.
 
 **Where does warmed single-card decode time go: graph compilation, replay, host dispatch, or execution?**
 
-Separate the costs on one fixed model and shape; success is a trace-backed latency budget that identifies the dominant controllable component.
+Separate costs on one fixed model and shape; success remains a device-measured, trace-backed latency budget identifying the dominant controllable component. Prepare a single-card TP1/PP1 experiment manifest and timing/log schema with all outcomes marked not tested. Gate the comparison on source/code verification that the pinned stack supports ordinary submission and graph replay within the same execution mode; otherwise mark replay unavailable, and treat any execution-mode comparison as a separate experiment. Compare cold versus recipe-cache-reused startup separately from warmed ordinary submission versus supported replay, holding model, precision, inputs, batch, context, decode length and buckets fixed. Record compilation/capture, recipe loading and warm-up as distinct observable stages; exclude them from steady state and flag later compilation or cache misses. Define CPU submission entry/exit separately from replay events and device kernel/DMA timestamps; host-call duration is not device completion. Define end-to-end token latency from ready decode state to token availability, including required waits, sampling and output handling; separate prefill/TTFT. Specify only synchronization mechanisms verified for the pinned stack: isolated-step diagnostics bracket the region with completion boundaries, while representative steady-state runs retain natural synchronization to avoid changing scheduling. Correlate host/device traces and graph identifiers, preserve overlap rather than summing overlapping durations, and do not infer device time by subtracting host time from end-to-end latency. Retain exact plugin/upstream SHAs, driver/runtime, PyTorch/bridge/profiler/dependency versions, host/carrier/device identity, model/tokenizer revisions and artifact hashes, token inputs, decoding configuration, mode/compile/replay flags, buckets, cache provenance, warm-up and memory settings. Retain startup/compiler/cache and capture logs, graph counts per token, raw token timestamps, synchronization locations, correlated CPU/device traces, memory observations, exceptions and correctness checks. Plan repeated profiled and unprofiled runs and latency distributions. Community dispatch bottleneck reports motivate attribution but are not established single-card outcomes.
 
 - Kind: Question
 - Status: active
 - Area: software-stack
-- Document date: 2026-09-25
-- Retrieved: 2026-09-25
+- Document date: 2026-10-03
+- Retrieved: 2026-11-07
 - Scope: not separately stated
 - Topics: graph, dispatch, replay, profiling
 - Basis Entries: `gaudi2-exec-modes`, `warmup-graph-cache-cost`, `discord-gaudi2-dispatch-overhead-resident-graphs`

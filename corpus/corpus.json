@@ -29,12 +29,17 @@
       "appliedAt": "2026-10-03T06:40:16.205Z",
       "resultHash": "6d17cace9632ceda3f3a479ab7e033a3d428f2542944b41794f8b3d7fe5f4194",
       "revision": 6
+    },
+    {
+      "appliedAt": "2026-11-07T15:56:07.752Z",
+      "resultHash": "3b92f458aedd08acb6911dd18f013fd123dca60b9bc57f8acbc8eebfa7209e07",
+      "revision": 7
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 6.",
+    "note": "Validated seed plus accepted corpus revision 7.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -1656,15 +1661,15 @@
         "discord-gaudi2-dispatch-overhead-resident-graphs"
       ],
       "citations": [],
-      "date": "2026-09-25",
-      "detail": "Separate the costs on one fixed model and shape; success is a trace-backed latency budget that identifies the dominant controllable component.",
+      "date": "2026-10-03",
+      "detail": "Separate costs on one fixed model and shape; success remains a device-measured, trace-backed latency budget identifying the dominant controllable component. Prepare a single-card TP1/PP1 experiment manifest and timing/log schema with all outcomes marked not tested. Gate the comparison on source/code verification that the pinned stack supports ordinary submission and graph replay within the same execution mode; otherwise mark replay unavailable, and treat any execution-mode comparison as a separate experiment. Compare cold versus recipe-cache-reused startup separately from warmed ordinary submission versus supported replay, holding model, precision, inputs, batch, context, decode length and buckets fixed. Record compilation/capture, recipe loading and warm-up as distinct observable stages; exclude them from steady state and flag later compilation or cache misses. Define CPU submission entry/exit separately from replay events and device kernel/DMA timestamps; host-call duration is not device completion. Define end-to-end token latency from ready decode state to token availability, including required waits, sampling and output handling; separate prefill/TTFT. Specify only synchronization mechanisms verified for the pinned stack: isolated-step diagnostics bracket the region with completion boundaries, while representative steady-state runs retain natural synchronization to avoid changing scheduling. Correlate host/device traces and graph identifiers, preserve overlap rather than summing overlapping durations, and do not infer device time by subtracting host time from end-to-end latency. Retain exact plugin/upstream SHAs, driver/runtime, PyTorch/bridge/profiler/dependency versions, host/carrier/device identity, model/tokenizer revisions and artifact hashes, token inputs, decoding configuration, mode/compile/replay flags, buckets, cache provenance, warm-up and memory settings. Retain startup/compiler/cache and capture logs, graph counts per token, raw token timestamps, synchronization locations, correlated CPU/device traces, memory observations, exceptions and correctness checks. Plan repeated profiled and unprofiled runs and latency distributions. Community dispatch bottleneck reports motivate attribution but are not established single-card outcomes.",
       "evidence": null,
       "id": "question-graph-dispatch",
       "kind": "question",
       "objectiveId": "gaudi2-practical-inference",
       "origin": "curated",
       "privateEvidenceCount": 0,
-      "retrievedAt": "2026-09-25",
+      "retrievedAt": "2026-11-07",
       "statement": "Where does warmed single-card decode time go: graph compilation, replay, host dispatch, or execution?",
       "status": "active",
       "topics": [
@@ -1679,7 +1684,7 @@
           "need-gaudi2-host",
           "need-profiler-trace"
         ],
-        "nextAction": "Capture a warmed trace and compare ordinary submission with the largest supported replay region.",
+        "nextAction": "Prepare a software-only TP1/PP1 fixed-shape decode manifest and timing/log schema; verify the pinned stack's actual same-mode submission/replay controls and synchronization mechanisms before naming APIs. Record all outcomes as not tested. Once hardware is available, capture repeated warmed ordinary-submission versus supported-replay runs with correlated host/device traces and unprofiled controls, retaining cold compilation/capture and warm-up separately.",
         "priority": 2,
         "status": "ready"
       }
@@ -1988,7 +1993,7 @@
       ]
     }
   ],
-  "generatedAt": "2026-10-03T06:40:16.205Z",
+  "generatedAt": "2026-11-07T15:56:07.752Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2010,8 +2015,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "6d17cace9632ceda3f3a479ab7e033a3d428f2542944b41794f8b3d7fe5f4194",
-  "revision": 6,
+  "resultHash": "3b92f458aedd08acb6911dd18f013fd123dca60b9bc57f8acbc8eebfa7209e07",
+  "revision": 7,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
