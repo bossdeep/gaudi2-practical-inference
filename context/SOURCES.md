@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 15
+acceptedRevision: 16
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 15. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 16. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -801,3 +801,14 @@ Commit-pinned vllm_gaudi/platform.py; complete INC CPU-loading conditional in Hp
 - Retrieved: 2026-10-03
 - Primary: yes
 - Selection rationale: Primary implementation directly supports the configuration predicate and assignment; downstream conversion and execution are not established.
+
+## tpc-llvm-issue-7-scalar-shift
+
+**[tpc-clang 2.7.33: scalar-splat right shift compiles as LEFT shift · Issue #7 · HabanaAI/tpc_llvm · GitHub](https://github.com/HabanaAI/tpc_llvm/issues/7)**
+
+TPC LLVM issue reporting scalar-splat right-shift miscompilation with a compiler-only reproducer.
+
+- Kind: reference-code
+- Retrieved: 2026-11-07
+- Primary: yes
+- Selection rationale: Original issue includes exact compiler command, code and reported emitted assembly; the report has not been independently reproduced.

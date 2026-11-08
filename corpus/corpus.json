@@ -74,12 +74,17 @@
       "appliedAt": "2026-11-07T17:08:17.633Z",
       "resultHash": "c1fc1c3054c9f7f26d9b1982f2023a21375b1d20c848e88d471fe29ab65188f3",
       "revision": 15
+    },
+    {
+      "appliedAt": "2026-11-08T00:09:43.324Z",
+      "resultHash": "f3d5d2b1a39d94e9343dbed158247bdd05f892c620765cf85686240c330128fa",
+      "revision": 16
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 15.",
+    "note": "Validated seed plus accepted corpus revision 16.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2248,9 +2253,69 @@
         "version-pinning",
         "checkpoint-dispatch"
       ]
+    },
+    {
+      "area": "reliability",
+      "basisEntryIds": [
+        "experimental-triton-gaudi2-backend-pr11545"
+      ],
+      "citations": [
+        {
+          "note": "Issue author reports compiler version, reproducer, optimization scope and emitted versus expected instructions.",
+          "sourceId": "tpc-llvm-issue-7-scalar-shift"
+        }
+      ],
+      "date": "2026-10-17",
+      "detail": "The issue supplies a compiler-only reproducer using -march=gaudi2 and -O2, with reported emitted and expected assembly, and says the behavior also affects other targets. The report has not been independently reproduced here; its existence does not establish that any particular inference kernel or result is affected.",
+      "evidence": "unverified",
+      "id": "tpc-clang-scalar-splat-shift-report",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "A public issue reports that tpc-clang 2.7.33 can emit a left shift instead of a scalar-splat right shift when compiling for Gaudi 2 at optimization level O1 or higher.",
+      "status": "active",
+      "topics": [
+        "tpc-clang",
+        "compiler",
+        "custom-kernels",
+        "correctness"
+      ]
+    },
+    {
+      "area": "serving",
+      "basisEntryIds": [
+        "warmup-graph-cache-cost"
+      ],
+      "citations": [],
+      "date": "2026-10-14",
+      "detail": "In an October 14 development report, the contributor described moving a slot's KV state to host memory after each request and restoring it on a matching prefix. Fixed-size pools reserved capacity for every slot at the maximum size; an eight-slot example with one 256K request and mostly 64K requests illustrated the waste. The contributor said the implementation was being refactored; software revision, topology, measurements and reproducibility were not stated.",
+      "evidence": "unverified",
+      "id": "discord-fixed-slot-kv-cache-capacity-tradeoff",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "A contributor reported an early KV-cache design using fixed-size HBM pools per slot and host eviction, with high HBM use when request lengths varied.",
+      "status": "active",
+      "topics": [
+        "kv-cache",
+        "capacity",
+        "prefix-cache",
+        "hbm",
+        "host-memory"
+      ]
     }
   ],
-  "generatedAt": "2026-11-07T17:08:17.633Z",
+  "generatedAt": "2026-11-08T00:09:43.324Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2272,8 +2337,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "c1fc1c3054c9f7f26d9b1982f2023a21375b1d20c848e88d471fe29ab65188f3",
-  "revision": 15,
+  "resultHash": "f3d5d2b1a39d94e9343dbed158247bdd05f892c620765cf85686240c330128fa",
+  "revision": 16,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -3068,6 +3133,17 @@
       "rankRationale": "Primary implementation directly supports the configuration predicate and assignment; downstream conversion and execution are not established.",
       "retrievedAt": "2026-10-03",
       "title": "platform.py",
+      "visibility": "public"
+    },
+    {
+      "description": "TPC LLVM issue reporting scalar-splat right-shift miscompilation with a compiler-only reproducer.",
+      "id": "tpc-llvm-issue-7-scalar-shift",
+      "kind": "reference-code",
+      "locator": "https://github.com/HabanaAI/tpc_llvm/issues/7",
+      "primary": true,
+      "rankRationale": "Original issue includes exact compiler command, code and reported emitted assembly; the report has not been independently reproduced.",
+      "retrievedAt": "2026-11-07",
+      "title": "tpc-clang 2.7.33: scalar-splat right shift compiles as LEFT shift · Issue #7 · HabanaAI/tpc_llvm · GitHub",
       "visibility": "public"
     }
   ],

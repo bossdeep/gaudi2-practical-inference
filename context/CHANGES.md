@@ -3,12 +3,20 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 15
+acceptedRevision: 16
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 16
+
+Applied 2026-11-08T00:09:43.324Z.
+
+- Accepted Entry: `discord-fixed-slot-kv-cache-capacity-tradeoff` — A contributor reported an early KV-cache design using fixed-size HBM pools per slot and host eviction, with high HBM use when request lengths varied.
+- Accepted Entry: `tpc-clang-scalar-splat-shift-report` — A public issue reports that tpc-clang 2.7.33 can emit a left shift instead of a scalar-splat right shift when compiling for Gaudi 2 at optimization level O1 or higher.
+- Source added: `tpc-llvm-issue-7-scalar-shift` — tpc-clang 2.7.33: scalar-splat right shift compiles as LEFT shift · Issue #7 · HabanaAI/tpc_llvm · GitHub
 
 ## Revision 15
 

@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 15
+acceptedRevision: 16
 doNotEdit: true
 ---
 # Evidence
@@ -1576,3 +1576,47 @@ At plugin commit b059f9c95d6a07f19eb00aa06d1ec8b87b296437, vllm_gaudi/platform.p
 - **platform.py** (`vllm-gaudi-v0260-platform-inc-cpu-default`)
   - Locator: https://raw.githubusercontent.com/vllm-project/vllm-gaudi/b059f9c95d6a07f19eb00aa06d1ec8b87b296437/vllm_gaudi/platform.py
   - Support: HpuPlatform.check_and_update_config contains the complete predicate, unspecified-device guard, and CPU assignment; supported_quantization lists fp8 and inc separately.
+
+## tpc-clang-scalar-splat-shift-report
+
+**A public issue reports that tpc-clang 2.7.33 can emit a left shift instead of a scalar-splat right shift when compiling for Gaudi 2 at optimization level O1 or higher.**
+
+The issue supplies a compiler-only reproducer using -march=gaudi2 and -O2, with reported emitted and expected assembly, and says the behavior also affects other targets. The report has not been independently reproduced here; its existence does not establish that any particular inference kernel or result is affected.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: reliability
+- Document date: 2026-10-17
+- Retrieved: 2026-11-08
+- Scope: topology: not-stated
+- Topics: tpc-clang, compiler, custom-kernels, correctness
+- Basis Entries: `experimental-triton-gaudi2-backend-pr11545`
+- Omitted private support records: 0
+
+### Citations
+
+- **tpc-clang 2.7.33: scalar-splat right shift compiles as LEFT shift · Issue #7 · HabanaAI/tpc_llvm · GitHub** (`tpc-llvm-issue-7-scalar-shift`)
+  - Locator: https://github.com/HabanaAI/tpc_llvm/issues/7
+  - Support: Issue author reports compiler version, reproducer, optimization scope and emitted versus expected instructions.
+
+## discord-fixed-slot-kv-cache-capacity-tradeoff
+
+**A contributor reported an early KV-cache design using fixed-size HBM pools per slot and host eviction, with high HBM use when request lengths varied.**
+
+In an October 14 development report, the contributor described moving a slot's KV state to host memory after each request and restoring it on a matching prefix. Fixed-size pools reserved capacity for every slot at the maximum size; an eight-slot example with one 256K request and mostly 64K requests illustrated the waste. The contributor said the implementation was being refactored; software revision, topology, measurements and reproducibility were not stated.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: serving
+- Document date: 2026-10-14
+- Retrieved: 2026-11-08
+- Scope: topology: not-stated
+- Topics: kv-cache, capacity, prefix-cache, hbm, host-memory
+- Basis Entries: `warmup-graph-cache-cost`
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
