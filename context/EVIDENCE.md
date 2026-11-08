@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 17
+acceptedRevision: 18
 doNotEdit: true
 ---
 # Evidence
@@ -1677,6 +1677,27 @@ The contributor's table reports Gaudium 4,026 tok/s at 8K, 3,272 tok/s at 32K us
 - Retrieved: 2026-11-08
 - Scope: topology: not-stated; precision: BF16
 - Topics: prefill, context-length, gaudium, benchmark
+- Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## owner-single-card-startup-report
+
+**The project owner reports having already performed startup using one GPU card.**
+
+The report does not identify the card as Gaudi 2, the host or carrier, the startup steps or outcome details, health checks, or an inference workload. The requested GAUDIGPU repository briefing was not available for inspection.
+
+- Kind: Claim
+- Status: active
+- Evidence: Author-validated
+- Area: hardware
+- Document date: 2026-11-08
+- Retrieved: 2026-11-08
+- Scope: topology: single-card
+- Topics: single-card, startup, bringup
 - Basis Entries: none
 - Omitted private support records: 1
 

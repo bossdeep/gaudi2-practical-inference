@@ -84,12 +84,17 @@
       "appliedAt": "2026-11-08T02:15:44.117Z",
       "resultHash": "063414d025f4639ee54611b4159f7d97757832c2000a570cab0dcd5c5316b129",
       "revision": 17
+    },
+    {
+      "appliedAt": "2026-11-08T03:05:26.739Z",
+      "resultHash": "43ae7ed7bdb4834703293675e2a2d9a3c5106fdd6d9ec902732a07121f5422db",
+      "revision": 18
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 17.",
+    "note": "Validated seed plus accepted corpus revision 18.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2397,9 +2402,33 @@
         "gaudium",
         "benchmark"
       ]
+    },
+    {
+      "area": "hardware",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-11-08",
+      "detail": "The report does not identify the card as Gaudi 2, the host or carrier, the startup steps or outcome details, health checks, or an inference workload. The requested GAUDIGPU repository briefing was not available for inspection.",
+      "evidence": "author-validated",
+      "id": "owner-single-card-startup-report",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "topology": "single-card"
+      },
+      "statement": "The project owner reports having already performed startup using one GPU card.",
+      "status": "active",
+      "topics": [
+        "single-card",
+        "startup",
+        "bringup"
+      ]
     }
   ],
-  "generatedAt": "2026-11-08T02:15:44.117Z",
+  "generatedAt": "2026-11-08T03:05:26.739Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2421,8 +2450,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "063414d025f4639ee54611b4159f7d97757832c2000a570cab0dcd5c5316b129",
-  "revision": 17,
+  "resultHash": "43ae7ed7bdb4834703293675e2a2d9a3c5106fdd6d9ec902732a07121f5422db",
+  "revision": 18,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",

@@ -3,12 +3,18 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 17
+acceptedRevision: 18
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 18
+
+Applied 2026-11-08T03:05:26.739Z.
+
+- Accepted Entry: `owner-single-card-startup-report` — The project owner reports having already performed startup using one GPU card.
 
 ## Revision 17
 
