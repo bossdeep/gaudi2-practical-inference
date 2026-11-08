@@ -79,12 +79,17 @@
       "appliedAt": "2026-11-08T00:09:43.324Z",
       "resultHash": "f3d5d2b1a39d94e9343dbed158247bdd05f892c620765cf85686240c330128fa",
       "revision": 16
+    },
+    {
+      "appliedAt": "2026-11-08T02:15:44.117Z",
+      "resultHash": "063414d025f4639ee54611b4159f7d97757832c2000a570cab0dcd5c5316b129",
+      "revision": 17
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 16.",
+    "note": "Validated seed plus accepted corpus revision 17.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-10-01",
@@ -2313,9 +2318,88 @@
         "hbm",
         "host-memory"
       ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [
+        "warmup-graph-cache-cost"
+      ],
+      "citations": [],
+      "date": "2026-11-08",
+      "detail": "In a November 8, 2026 report adjacent to a statement that he had one Gaudi 2, the contributor described 504 deduplicated engine starts, 18,362 recipe loads and 5,730 compilations, estimating four hours of compilation avoided. He reported host-side --build-cache outside the card lock, graph destruction reducing one run's steady host memory from 68 GB to 1.2 GB, and identity gates of 42/42 fast-start, 4/4 FP8 and 6/6 trees. Cache keys, invalidation rules, exact software versions and raw logs are unavailable. Startup time is distinct from warmed decode; results and correctness are not independently verified.",
+      "evidence": "unverified",
+      "id": "discord-josephur-gaudium-recipe-cache",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 2,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "topology": "single-card"
+      },
+      "statement": "A contributor reported that a recipe cache reduced a 54-recipe fast-start benchmark from 55–59 seconds to 21 seconds and passed stated cache-on versus cache-off identity gates.",
+      "status": "active",
+      "topics": [
+        "recipe-cache",
+        "graph-compilation",
+        "startup",
+        "correctness",
+        "host-memory"
+      ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-11-08",
+      "detail": "The reported Gaudium speed table compares code, story, list and explain prompts against 1Cat greedy, patched MTP and DFlash2 rows. Nearby discussion describes Qwen 3.8 27B with BF16 weights and KV cache, FP32 DeltaNet and BF16 DFlash2 head; exact table configuration, revisions, sampling, measurement procedure, correctness and topology are not established by the table. These are best-per-prompt source-reported numbers, not reproducible single-card measurements.",
+      "evidence": "unverified",
+      "id": "discord-josephur-gaudium-decode-comparison",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "A contributor reported Gaudium best-per-prompt decode rates of 194.0, 97.4, 99.5 and 104.9 tok/s across four prompts, with a 118.5 tok/s geometric mean.",
+      "status": "active",
+      "topics": [
+        "decode",
+        "gaudium",
+        "speculative-decoding",
+        "benchmark"
+      ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-11-08",
+      "detail": "The contributor's table reports Gaudium 4,026 tok/s at 8K, 3,272 tok/s at 32K using speed, and 1,827 tok/s at 128K; corresponding 1Cat values are 6,131, 4,165, 3,460, 1,958 and 1,175 tok/s at 2K, 8K, 32K, 128K and 256K respectively. These are reported best runs, not distributions. Model, topology, software revisions, timing definitions and raw runs are not specified in the message; no standalone-card or repeatability conclusion follows.",
+      "evidence": "unverified",
+      "id": "discord-josephur-gaudium-prefill-comparison",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 1,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "precision": "BF16",
+        "topology": "not-stated"
+      },
+      "statement": "A contributor reported BF16 Gaudium best-run prefill throughput of 4,116 tok/s at 2K context and 1,169 tok/s at 256K in a comparison with 1Cat.",
+      "status": "active",
+      "topics": [
+        "prefill",
+        "context-length",
+        "gaudium",
+        "benchmark"
+      ]
     }
   ],
-  "generatedAt": "2026-11-08T00:09:43.324Z",
+  "generatedAt": "2026-11-08T02:15:44.117Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2337,8 +2421,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "f3d5d2b1a39d94e9343dbed158247bdd05f892c620765cf85686240c330128fa",
-  "revision": 16,
+  "resultHash": "063414d025f4639ee54611b4159f7d97757832c2000a570cab0dcd5c5316b129",
+  "revision": 17,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",

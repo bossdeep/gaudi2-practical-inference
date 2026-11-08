@@ -3,12 +3,20 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 16
+acceptedRevision: 17
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 17
+
+Applied 2026-11-08T02:15:44.117Z.
+
+- Accepted Entry: `discord-josephur-gaudium-decode-comparison` — A contributor reported Gaudium best-per-prompt decode rates of 194.0, 97.4, 99.5 and 104.9 tok/s across four prompts, with a 118.5 tok/s geometric mean.
+- Accepted Entry: `discord-josephur-gaudium-prefill-comparison` — A contributor reported BF16 Gaudium best-run prefill throughput of 4,116 tok/s at 2K context and 1,169 tok/s at 256K in a comparison with 1Cat.
+- Accepted Entry: `discord-josephur-gaudium-recipe-cache` — A contributor reported that a recipe cache reduced a 54-recipe fast-start benchmark from 55–59 seconds to 21 seconds and passed stated cache-on versus cache-off identity gates.
 
 ## Revision 16
 

@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 16
+acceptedRevision: 17
 doNotEdit: true
 ---
 # Evidence
@@ -1615,6 +1615,69 @@ In an October 14 development report, the contributor described moving a slot's K
 - Scope: topology: not-stated
 - Topics: kv-cache, capacity, prefix-cache, hbm, host-memory
 - Basis Entries: `warmup-graph-cache-cost`
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-josephur-gaudium-recipe-cache
+
+**A contributor reported that a recipe cache reduced a 54-recipe fast-start benchmark from 55–59 seconds to 21 seconds and passed stated cache-on versus cache-off identity gates.**
+
+In a November 8, 2026 report adjacent to a statement that he had one Gaudi 2, the contributor described 504 deduplicated engine starts, 18,362 recipe loads and 5,730 compilations, estimating four hours of compilation avoided. He reported host-side --build-cache outside the card lock, graph destruction reducing one run's steady host memory from 68 GB to 1.2 GB, and identity gates of 42/42 fast-start, 4/4 FP8 and 6/6 trees. Cache keys, invalidation rules, exact software versions and raw logs are unavailable. Startup time is distinct from warmed decode; results and correctness are not independently verified.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: performance
+- Document date: 2026-11-08
+- Retrieved: 2026-11-08
+- Scope: topology: single-card
+- Topics: recipe-cache, graph-compilation, startup, correctness, host-memory
+- Basis Entries: `warmup-graph-cache-cost`
+- Omitted private support records: 2
+
+### Citations
+
+No public citation retained.
+
+## discord-josephur-gaudium-decode-comparison
+
+**A contributor reported Gaudium best-per-prompt decode rates of 194.0, 97.4, 99.5 and 104.9 tok/s across four prompts, with a 118.5 tok/s geometric mean.**
+
+The reported Gaudium speed table compares code, story, list and explain prompts against 1Cat greedy, patched MTP and DFlash2 rows. Nearby discussion describes Qwen 3.8 27B with BF16 weights and KV cache, FP32 DeltaNet and BF16 DFlash2 head; exact table configuration, revisions, sampling, measurement procedure, correctness and topology are not established by the table. These are best-per-prompt source-reported numbers, not reproducible single-card measurements.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: performance
+- Document date: 2026-11-08
+- Retrieved: 2026-11-08
+- Scope: topology: not-stated
+- Topics: decode, gaudium, speculative-decoding, benchmark
+- Basis Entries: none
+- Omitted private support records: 1
+
+### Citations
+
+No public citation retained.
+
+## discord-josephur-gaudium-prefill-comparison
+
+**A contributor reported BF16 Gaudium best-run prefill throughput of 4,116 tok/s at 2K context and 1,169 tok/s at 256K in a comparison with 1Cat.**
+
+The contributor's table reports Gaudium 4,026 tok/s at 8K, 3,272 tok/s at 32K using speed, and 1,827 tok/s at 128K; corresponding 1Cat values are 6,131, 4,165, 3,460, 1,958 and 1,175 tok/s at 2K, 8K, 32K, 128K and 256K respectively. These are reported best runs, not distributions. Model, topology, software revisions, timing definitions and raw runs are not specified in the message; no standalone-card or repeatability conclusion follows.
+
+- Kind: Claim
+- Status: active
+- Evidence: Unverified
+- Area: performance
+- Document date: 2026-11-08
+- Retrieved: 2026-11-08
+- Scope: topology: not-stated; precision: BF16
+- Topics: prefill, context-length, gaudium, benchmark
+- Basis Entries: none
 - Omitted private support records: 1
 
 ### Citations

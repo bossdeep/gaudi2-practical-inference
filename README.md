@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 16
+acceptedRevision: 17
 doNotEdit: true
 ---
 # Gaudi 2 practical inference
 
-Accepted research state published by [OpenCat Research](https://gaudi.clarion.run/projects/gaudi2-practical-inference). Revision **16** · generated 2026-11-08T00:09:43.324Z · [machine corpus](corpus/corpus.json) · [integrity manifest](MANIFEST.json).
+Accepted research state published by [OpenCat Research](https://gaudi.clarion.run/projects/gaudi2-practical-inference). Revision **17** · generated 2026-11-08T02:15:44.117Z · [machine corpus](corpus/corpus.json) · [integrity manifest](MANIFEST.json).
 
 ## Objective
 
