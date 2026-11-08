@@ -3,14 +3,14 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 18
+acceptedRevision: 19
 doNotEdit: true
 ---
 # Current State
 
-Accepted revision 18.
+Accepted revision 19.
 
-Brief as of 2026-10-01.
+Brief as of 2026-11-08.
 
 ### Access — Partial
 
@@ -18,7 +18,9 @@ A documented single-card PCIe-carrier configuration initializes cleanly and comp
 
 - Gaudi 2 has a maintained vLLM plugin path and documented installation, but its validated model coverage is narrower than Gaudi 3.
   - Cites: [Serving via the vLLM Hardware Plugin for Intel Gaudi, and the narrowing Gaudi 2 validation coverage](context/EVIDENCE.md#gaudi2-vllm-coverage), [Source installation is pin-locked to a validated upstream vLLM commit](context/EVIDENCE.md#install-pinned-source-build), [Validated model list is broad but Gaudi 3-centric, with a much smaller Gaudi 2 subset](context/EVIDENCE.md#validated-models-gaudi3-centric)
-- OAM-to-PCIe operation is reported, while missing-UBB driver behavior, unwired scale-up links, and a complete repeatable host setup remain unresolved.
+- The owner reports single-card driver health, HPU compute and a pinned serving smoke test; serving startup after reboot and a complete reproducible carrier procedure remain unestablished.
+  - Cites: [The owner reports a single Gaudi 2 setup passing driver health, HPU compute and a pinned serving smoke test; serving startup after reboot was not tested.](context/EVIDENCE.md#owner-single-card-startup-report)
+- OAM-to-PCIe operation is also reported with unwired scale-up links and missing-UBB driver issues.
   - Cites: [Single Gaudi 2 runs on OAM-to-PCIe adapters, but scale-up SerDes/QSFP links are unwired](context/EVIDENCE.md#discord-gaudi2-oam-adapter-enablement)
 
 Uncertain: none.
@@ -31,6 +33,8 @@ Pinned single-card workloads show repeatable TTFT, prefill, decode, capacity, co
   - Cites: [Qwen3.8-27B-FP8: archived A800-vs-Gaudi2 record shows shorter TTFT at all tested concurrencies, but a 3.3% decode-throughput deficit at 32 concurrency](context/EVIDENCE.md#qwen38-fp8-a800-vs-gaudi2-record), [Hand-written MME/TPC kernel findings: 1.5 TB/s TPC aggregate, 300 GB/s MME, 40 tok/s Qwen 27B on TPCs alone](context/EVIDENCE.md#discord-gaudi2-handwritten-mme-tpc-kernels)
 - The strongest retained throughput evidence is largely TP2 or TP2×PP2 and must not be generalized to a standalone carrier card.
   - Cites: [DeepSeek V4.1 unified full-acceleration run: 81.347 tokens/s mean with an in-repository evidence bundle and explicit lifecycle checks](context/EVIDENCE.md#deepseek-v41-full-accel-evidence-bundle), [Qwen TP2 gains came from fusing the AllReduce/residual/RMSNorm boundary, after a silent missing-collective bug in deferred reductions was fixed first](context/EVIDENCE.md#tp2-reduction-fusion-and-correctness), [Reported DSV4.1 at 73.5 tok/s token-generation at 1M context on 4 Gaudi 2](context/EVIDENCE.md#discord-cdna2-gaudi2-dsv41-1m-context)
+- The owner reports pinned single-card Qwen FP8 and DFlash2 serving measurements with significant warm-up and memory use; repeatability and complete workload definitions remain open.
+  - Cites: [The owner reports single-Gaudi 2 Qwen3.8-27B-FP8 plus DFlash2 serving smoke and benchmark results, with substantial first-start warm-up and memory use.](context/EVIDENCE.md#owner-single-card-qwen-serving-performance)
 
 Uncertain: [~3000 tok/s prefill on 4 Gaudi 2 (TP2xPP2) for DeepSeek V4.1 Flash - replication disputed](context/EVIDENCE.md#discord-gaudi2-dsv41-prefill-3000tps-disputed), [Independent attempt: 80 tok/s single-stream decode but batching and MTP broken, ~100 tok/s prefill](context/EVIDENCE.md#discord-gaudi2-1cat-dsv41-partial), [A 1Cat-affiliated Discord participant claimed “6.4k prefill,” but the model, topology, units, benchmark definition, and measurement evidence were not stated.](context/EVIDENCE.md#discord-gaudi2-prefill-6k4-claim)
 

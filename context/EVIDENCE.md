@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 18
+acceptedRevision: 19
 doNotEdit: true
 ---
 # Evidence
@@ -1686,9 +1686,9 @@ No public citation retained.
 
 ## owner-single-card-startup-report
 
-**The project owner reports having already performed startup using one GPU card.**
+**The owner reports a single Gaudi 2 setup passing driver health, HPU compute and a pinned serving smoke test; serving startup after reboot was not tested.**
 
-The report does not identify the card as Gaudi 2, the host or carrier, the startup steps or outcome details, health checks, or an inference workload. The requested GAUDIGPU repository briefing was not available for inspection.
+The owner reports patched Intel 1.24.1-482, assigned BARs and identity IOMMU; the driver survives reboot, gaudi-check passes and containerized HPU compute succeeds in eager and lazy modes. A pinned single-card serving repository at c72f27547af57c6938e67540748c3a15827d8ac6 reportedly passes its smoke test with Qwen3.8-27B-FP8 and a DFlash2 draft. The installer reportedly exited early and skipped steps were completed manually. The briefing does not provide a complete independently reproducible carrier procedure or establish serving startup after reboot.
 
 - Kind: Claim
 - Status: active
@@ -1696,8 +1696,29 @@ The report does not identify the card as Gaudi 2, the host or carrier, the start
 - Area: hardware
 - Document date: 2026-11-08
 - Retrieved: 2026-11-08
-- Scope: topology: single-card
-- Topics: single-card, startup, bringup
+- Scope: topology: single-card; model: Qwen3.8-27B-FP8 with DFlash2 draft; precision: FP8
+- Topics: single-card, bringup, driver, health, hpu-smoke, serving-smoke
+- Basis Entries: none
+- Omitted private support records: 2
+
+### Citations
+
+No public citation retained.
+
+## owner-single-card-qwen-serving-performance
+
+**The owner reports single-Gaudi 2 Qwen3.8-27B-FP8 plus DFlash2 serving smoke and benchmark results, with substantial first-start warm-up and memory use.**
+
+On the serving repository pinned at c72f27547af57c6938e67540748c3a15827d8ac6, the owner reports single-stream decode of 124–204 tokens/s, approximately 341 tokens/s combined across two streams, and 6.75 s to first token for a 28.6K-token prompt followed by 91.6 tokens/s decode. First start reportedly warmed up for 2,675 s, used about 85 of 94.6 GiB HBM and peaked at 15.2 GiB host RAM plus 3.5 GiB swap on a 16 GiB host. The report says smoke and bench scripts passed but does not specify repeat counts, full workload definitions, correctness coverage or raw measurements; serving startup after reboot was not tested.
+
+- Kind: Claim
+- Status: active
+- Evidence: Author-validated
+- Area: performance
+- Document date: 2026-11-08
+- Retrieved: 2026-11-08
+- Scope: topology: single-card; model: Qwen3.8-27B-FP8 with DFlash2 draft; precision: FP8
+- Topics: single-card, qwen3-8, dflash2, decode, ttft, warmup, memory
 - Basis Entries: none
 - Omitted private support records: 1
 

@@ -3,18 +3,26 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 18
+acceptedRevision: 19
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
 
+## Revision 19
+
+Applied 2026-11-08T03:47:02.690Z.
+
+- State: current State revised
+- Accepted Entry: `owner-single-card-qwen-serving-performance` — The owner reports single-Gaudi 2 Qwen3.8-27B-FP8 plus DFlash2 serving smoke and benchmark results, with substantial first-start warm-up and memory use.
+- Accepted Entry: `owner-single-card-startup-report` — The owner reports a single Gaudi 2 setup passing driver health, HPU compute and a pinned serving smoke test; serving startup after reboot was not tested.
+
 ## Revision 18
 
 Applied 2026-11-08T03:05:26.739Z.
 
-- Accepted Entry: `owner-single-card-startup-report` — The project owner reports having already performed startup using one GPU card.
+No public records from this revision remain current.
 
 ## Revision 17
 
@@ -119,7 +127,7 @@ Applied 2026-10-02T00:02:06.675Z.
 
 Applied 2026-10-01T23:51:08.250Z.
 
-- State: current State revised
+No public records from this revision remain current.
 
 ## Revision 2
 

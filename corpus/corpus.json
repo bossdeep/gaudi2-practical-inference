@@ -89,15 +89,20 @@
       "appliedAt": "2026-11-08T03:05:26.739Z",
       "resultHash": "43ae7ed7bdb4834703293675e2a2d9a3c5106fdd6d9ec902732a07121f5422db",
       "revision": 18
+    },
+    {
+      "appliedAt": "2026-11-08T03:47:02.690Z",
+      "resultHash": "cdb9af4cddf81f52799eaf8df7845a4f44ad444fc97901afb55812b8c19292ec",
+      "revision": 19
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 18.",
+    "note": "Validated seed plus accepted corpus revision 19.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
-    "updated": "2026-10-01",
+    "updated": "2026-11-08",
     "version": "0.4"
   },
   "entries": [
@@ -2408,27 +2413,62 @@
       "basisEntryIds": [],
       "citations": [],
       "date": "2026-11-08",
-      "detail": "The report does not identify the card as Gaudi 2, the host or carrier, the startup steps or outcome details, health checks, or an inference workload. The requested GAUDIGPU repository briefing was not available for inspection.",
+      "detail": "The owner reports patched Intel 1.24.1-482, assigned BARs and identity IOMMU; the driver survives reboot, gaudi-check passes and containerized HPU compute succeeds in eager and lazy modes. A pinned single-card serving repository at c72f27547af57c6938e67540748c3a15827d8ac6 reportedly passes its smoke test with Qwen3.8-27B-FP8 and a DFlash2 draft. The installer reportedly exited early and skipped steps were completed manually. The briefing does not provide a complete independently reproducible carrier procedure or establish serving startup after reboot.",
       "evidence": "author-validated",
       "id": "owner-single-card-startup-report",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 2,
+      "retrievedAt": "2026-11-08",
+      "scope": {
+        "model": "Qwen3.8-27B-FP8 with DFlash2 draft",
+        "precision": "FP8",
+        "topology": "single-card"
+      },
+      "statement": "The owner reports a single Gaudi 2 setup passing driver health, HPU compute and a pinned serving smoke test; serving startup after reboot was not tested.",
+      "status": "active",
+      "topics": [
+        "single-card",
+        "bringup",
+        "driver",
+        "health",
+        "hpu-smoke",
+        "serving-smoke"
+      ]
+    },
+    {
+      "area": "performance",
+      "basisEntryIds": [],
+      "citations": [],
+      "date": "2026-11-08",
+      "detail": "On the serving repository pinned at c72f27547af57c6938e67540748c3a15827d8ac6, the owner reports single-stream decode of 124–204 tokens/s, approximately 341 tokens/s combined across two streams, and 6.75 s to first token for a 28.6K-token prompt followed by 91.6 tokens/s decode. First start reportedly warmed up for 2,675 s, used about 85 of 94.6 GiB HBM and peaked at 15.2 GiB host RAM plus 3.5 GiB swap on a 16 GiB host. The report says smoke and bench scripts passed but does not specify repeat counts, full workload definitions, correctness coverage or raw measurements; serving startup after reboot was not tested.",
+      "evidence": "author-validated",
+      "id": "owner-single-card-qwen-serving-performance",
       "kind": "claim",
       "objectiveId": "gaudi2-practical-inference",
       "origin": "runtime",
       "privateEvidenceCount": 1,
       "retrievedAt": "2026-11-08",
       "scope": {
+        "model": "Qwen3.8-27B-FP8 with DFlash2 draft",
+        "precision": "FP8",
         "topology": "single-card"
       },
-      "statement": "The project owner reports having already performed startup using one GPU card.",
+      "statement": "The owner reports single-Gaudi 2 Qwen3.8-27B-FP8 plus DFlash2 serving smoke and benchmark results, with substantial first-start warm-up and memory use.",
       "status": "active",
       "topics": [
         "single-card",
-        "startup",
-        "bringup"
+        "qwen3-8",
+        "dflash2",
+        "decode",
+        "ttft",
+        "warmup",
+        "memory"
       ]
     }
   ],
-  "generatedAt": "2026-11-08T03:05:26.739Z",
+  "generatedAt": "2026-11-08T03:47:02.690Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2450,8 +2490,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "43ae7ed7bdb4834703293675e2a2d9a3c5106fdd6d9ec902732a07121f5422db",
-  "revision": 18,
+  "resultHash": "cdb9af4cddf81f52799eaf8df7845a4f44ad444fc97901afb55812b8c19292ec",
+  "revision": 19,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -3261,8 +3301,8 @@
     }
   ],
   "stateView": {
-    "asOf": "2026-10-01",
-    "asOfRevision": 3,
+    "asOf": "2026-11-08",
+    "asOfRevision": 19,
     "criteria": [
       {
         "answer": [
@@ -3276,9 +3316,15 @@
           },
           {
             "entryIds": [
+              "owner-single-card-startup-report"
+            ],
+            "text": "The owner reports single-card driver health, HPU compute and a pinned serving smoke test; serving startup after reboot and a complete reproducible carrier procedure remain unestablished."
+          },
+          {
+            "entryIds": [
               "discord-gaudi2-oam-adapter-enablement"
             ],
-            "text": "OAM-to-PCIe operation is reported, while missing-UBB driver behavior, unwired scale-up links, and a complete repeatable host setup remain unresolved."
+            "text": "OAM-to-PCIe operation is also reported with unwired scale-up links and missing-UBB driver issues."
           }
         ],
         "label": "Access",
@@ -3301,6 +3347,12 @@
               "discord-cdna2-gaudi2-dsv41-1m-context"
             ],
             "text": "The strongest retained throughput evidence is largely TP2 or TP2×PP2 and must not be generalized to a standalone carrier card."
+          },
+          {
+            "entryIds": [
+              "owner-single-card-qwen-serving-performance"
+            ],
+            "text": "The owner reports pinned single-card Qwen FP8 and DFlash2 serving measurements with significant warm-up and memory use; repeatability and complete workload definitions remain open."
           }
         ],
         "label": "Performance",
