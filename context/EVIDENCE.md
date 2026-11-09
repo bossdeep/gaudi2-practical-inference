@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 19
+acceptedRevision: 20
 doNotEdit: true
 ---
 # Evidence
@@ -1725,3 +1725,26 @@ On the serving repository pinned at c72f27547af57c6938e67540748c3a15827d8ac6, th
 ### Citations
 
 No public citation retained.
+
+## gaudi-dynamic-shapes-compilation-bucketing
+
+**Gaudi dynamic input shapes or operators can cause repeated graph recompilation; bucketing trades fewer compiled shapes against padding overhead.**
+
+Intel Gaudi documentation 1.24.2 describes varying input shapes and dynamic-output operators as potential causes of recompilation. Bucketing and padding reduce shape variety: more buckets can increase compilation, while fewer buckets can increase unnecessary padded computation. The guide describes graph-compilation metrics and optional dynamic-shape refinement, whose applicability and controls must be checked against the pinned stack. Its examples primarily concern training; neither repeated compilation nor any performance impact has been established for the project's single-card serving workload.
+
+- Kind: Claim
+- Status: active
+- Evidence: Documented
+- Area: software-stack
+- Document date: 2026-11-09
+- Retrieved: 2026-11-09
+- Scope: topology: not-stated
+- Topics: dynamic-shapes, graph-compilation, bucketing, padding, serving-gotchas
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+- **Handling Dynamic Shapes — Gaudi Documentation 1.24.2 documentation** (`intel-gaudi-dynamic-shapes-bucketing-1242`)
+  - Locator: https://docs.habana.ai/en/latest/PyTorch/Model_Optimization_PyTorch/Dynamic_Shapes.html
+  - Support: Documents changing input shapes and dynamic ops as causes of recompilation, diagnostics, and the compilation-versus-padding tradeoff of bucket count.

@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 19
+acceptedRevision: 20
 doNotEdit: true
 ---
 # Sources
 
-All public Sources retained by accepted revision 19. Private provenance is never projected into a public project repository.
+All public Sources retained by accepted revision 20. Private provenance is never projected into a public project repository.
 
 ## docs-features-deepseek-v41-md-e421582
 
@@ -812,3 +812,14 @@ TPC LLVM issue reporting scalar-splat right-shift miscompilation with a compiler
 - Retrieved: 2026-11-07
 - Primary: yes
 - Selection rationale: Original issue includes exact compiler command, code and reported emitted assembly; the report has not been independently reproduced.
+
+## intel-gaudi-dynamic-shapes-bucketing-1242
+
+**[Handling Dynamic Shapes — Gaudi Documentation 1.24.2 documentation](https://docs.habana.ai/en/latest/PyTorch/Model_Optimization_PyTorch/Dynamic_Shapes.html)**
+
+Intel Gaudi 1.24.2 documentation on dynamic shapes, recompilation diagnostics, bucketing and padding.
+
+- Kind: vendor-doc
+- Retrieved: 2026-11-09
+- Primary: yes
+- Selection rationale: Primary vendor documentation directly describing dynamic-shape compilation and the bucket-count versus padding tradeoff; predominantly training examples rather than a measured single-card serving result.

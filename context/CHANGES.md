@@ -3,12 +3,19 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 19
+acceptedRevision: 20
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 20
+
+Applied 2026-11-09T06:31:40.154Z.
+
+- Accepted Entry: `gaudi-dynamic-shapes-compilation-bucketing` — Gaudi dynamic input shapes or operators can cause repeated graph recompilation; bucketing trades fewer compiled shapes against padding overhead.
+- Source added: `intel-gaudi-dynamic-shapes-bucketing-1242` — Handling Dynamic Shapes — Gaudi Documentation 1.24.2 documentation
 
 ## Revision 19
 

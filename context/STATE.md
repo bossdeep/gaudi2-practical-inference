@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 19
+acceptedRevision: 20
 doNotEdit: true
 ---
 # Current State
 
-Accepted revision 19.
+Accepted revision 20.
 
 Brief as of 2026-11-08.
 

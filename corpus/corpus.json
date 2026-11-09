@@ -94,12 +94,17 @@
       "appliedAt": "2026-11-08T03:47:02.690Z",
       "resultHash": "cdb9af4cddf81f52799eaf8df7845a4f44ad444fc97901afb55812b8c19292ec",
       "revision": 19
+    },
+    {
+      "appliedAt": "2026-11-09T06:31:40.154Z",
+      "resultHash": "de0a6f765deb2dc304ed1f6a774dedd0ab09694f6d276a05cab412f73823bd94",
+      "revision": 20
     }
   ],
   "dataset": {
     "deploymentAccess": "public",
     "label": "Gaudi 2 research portal",
-    "note": "Validated seed plus accepted corpus revision 19.",
+    "note": "Validated seed plus accepted corpus revision 20.",
     "retrievedAt": "2026-09-25",
     "seedEntryCount": 43,
     "updated": "2026-11-08",
@@ -2466,9 +2471,40 @@
         "warmup",
         "memory"
       ]
+    },
+    {
+      "area": "software-stack",
+      "basisEntryIds": [],
+      "citations": [
+        {
+          "note": "Documents changing input shapes and dynamic ops as causes of recompilation, diagnostics, and the compilation-versus-padding tradeoff of bucket count.",
+          "sourceId": "intel-gaudi-dynamic-shapes-bucketing-1242"
+        }
+      ],
+      "date": "2026-11-09",
+      "detail": "Intel Gaudi documentation 1.24.2 describes varying input shapes and dynamic-output operators as potential causes of recompilation. Bucketing and padding reduce shape variety: more buckets can increase compilation, while fewer buckets can increase unnecessary padded computation. The guide describes graph-compilation metrics and optional dynamic-shape refinement, whose applicability and controls must be checked against the pinned stack. Its examples primarily concern training; neither repeated compilation nor any performance impact has been established for the project's single-card serving workload.",
+      "evidence": "documented",
+      "id": "gaudi-dynamic-shapes-compilation-bucketing",
+      "kind": "claim",
+      "objectiveId": "gaudi2-practical-inference",
+      "origin": "runtime",
+      "privateEvidenceCount": 0,
+      "retrievedAt": "2026-11-09",
+      "scope": {
+        "topology": "not-stated"
+      },
+      "statement": "Gaudi dynamic input shapes or operators can cause repeated graph recompilation; bucketing trades fewer compiled shapes against padding overhead.",
+      "status": "active",
+      "topics": [
+        "dynamic-shapes",
+        "graph-compilation",
+        "bucketing",
+        "padding",
+        "serving-gotchas"
+      ]
     }
   ],
-  "generatedAt": "2026-11-08T03:47:02.690Z",
+  "generatedAt": "2026-11-09T06:31:40.154Z",
   "limitations": [
     "Private workspace and restricted Discord provenance is omitted from this shareable projection.",
     "Work logs, Runs, Events, proposals, credentials, sessions, connector state, and model settings remain in OpenCat Research.",
@@ -2490,8 +2526,8 @@
     "title": "Gaudi 2 practical inference"
   },
   "projectId": "gaudi2-practical-inference",
-  "resultHash": "cdb9af4cddf81f52799eaf8df7845a4f44ad444fc97901afb55812b8c19292ec",
-  "revision": 19,
+  "resultHash": "de0a6f765deb2dc304ed1f6a774dedd0ab09694f6d276a05cab412f73823bd94",
+  "revision": 20,
   "schemaVersion": 1,
   "scope": "shareable-accepted-corpus",
   "seedHash": "366d059c86813b1f726bc94fd293a3564667598ebb0d050c8ff6cd3c2012ec59",
@@ -3297,6 +3333,17 @@
       "rankRationale": "Original issue includes exact compiler command, code and reported emitted assembly; the report has not been independently reproduced.",
       "retrievedAt": "2026-11-07",
       "title": "tpc-clang 2.7.33: scalar-splat right shift compiles as LEFT shift · Issue #7 · HabanaAI/tpc_llvm · GitHub",
+      "visibility": "public"
+    },
+    {
+      "description": "Intel Gaudi 1.24.2 documentation on dynamic shapes, recompilation diagnostics, bucketing and padding.",
+      "id": "intel-gaudi-dynamic-shapes-bucketing-1242",
+      "kind": "vendor-doc",
+      "locator": "https://docs.habana.ai/en/latest/PyTorch/Model_Optimization_PyTorch/Dynamic_Shapes.html",
+      "primary": true,
+      "rankRationale": "Primary vendor documentation directly describing dynamic-shape compilation and the bucket-count versus padding tradeoff; predominantly training examples rather than a measured single-card serving result.",
+      "retrievedAt": "2026-11-09",
+      "title": "Handling Dynamic Shapes — Gaudi Documentation 1.24.2 documentation",
       "visibility": "public"
     }
   ],
