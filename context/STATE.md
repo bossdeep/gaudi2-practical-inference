@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 20
+acceptedRevision: 21
 doNotEdit: true
 ---
 # Current State
 
-Accepted revision 20.
+Accepted revision 21.
 
 Brief as of 2026-11-08.
 
@@ -53,7 +53,7 @@ Inputs: [Gaudi 2 hardware access for reproducible tests](context/EVIDENCE.md#nee
 
 ## Decisions
 
-No steering decisions.
+- [Treat a reusable single-card model-optimization playbook as an important path to the project objective for existing and new models.](context/EVIDENCE.md#decision-model-optimization-playbook) (2026-11-09)
 
 ## Queue
 

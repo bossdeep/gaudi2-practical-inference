@@ -3,12 +3,19 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 20
+acceptedRevision: 21
 doNotEdit: true
 ---
 # Accepted changes
 
 Git history is the complete publication history. This projection lists current public records under the accepted revision that last changed them.
+
+## Revision 21
+
+Applied 2026-11-09T08:04:40.825Z.
+
+- Accepted Entry: `decision-model-optimization-playbook` — Treat a reusable single-card model-optimization playbook as an important path to the project objective for existing and new models.
+- Updated Entry: `question-graph-dispatch` — Where does warmed single-card decode time go: graph compilation, replay, host dispatch, or execution?
 
 ## Revision 20
 
@@ -106,7 +113,7 @@ Applied 2026-11-07T15:56:31.793Z.
 
 Applied 2026-11-07T15:56:07.752Z.
 
-- Updated Entry: `question-graph-dispatch` — Where does warmed single-card decode time go: graph compilation, replay, host dispatch, or execution?
+No public records from this revision remain current.
 
 ## Revision 6
 

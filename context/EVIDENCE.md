@@ -3,7 +3,7 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 20
+acceptedRevision: 21
 doNotEdit: true
 ---
 # Evidence
@@ -1210,13 +1210,15 @@ No public citation retained.
 
 Separate costs on one fixed model and shape; success remains a device-measured, trace-backed latency budget identifying the dominant controllable component. Prepare a single-card TP1/PP1 experiment manifest and timing/log schema with all outcomes marked not tested. Gate the comparison on source/code verification that the pinned stack supports ordinary submission and graph replay within the same execution mode; otherwise mark replay unavailable, and treat any execution-mode comparison as a separate experiment. Compare cold versus recipe-cache-reused startup separately from warmed ordinary submission versus supported replay, holding model, precision, inputs, batch, context, decode length and buckets fixed. Record compilation/capture, recipe loading and warm-up as distinct observable stages; exclude them from steady state and flag later compilation or cache misses. Define CPU submission entry/exit separately from replay events and device kernel/DMA timestamps; host-call duration is not device completion. Define end-to-end token latency from ready decode state to token availability, including required waits, sampling and output handling; separate prefill/TTFT. Specify only synchronization mechanisms verified for the pinned stack: isolated-step diagnostics bracket the region with completion boundaries, while representative steady-state runs retain natural synchronization to avoid changing scheduling. Correlate host/device traces and graph identifiers, preserve overlap rather than summing overlapping durations, and do not infer device time by subtracting host time from end-to-end latency. Retain exact plugin/upstream SHAs, driver/runtime, PyTorch/bridge/profiler/dependency versions, host/carrier/device identity, model/tokenizer revisions and artifact hashes, token inputs, decoding configuration, mode/compile/replay flags, buckets, cache provenance, warm-up and memory settings. Retain startup/compiler/cache and capture logs, graph counts per token, raw token timestamps, synchronization locations, correlated CPU/device traces, memory observations, exceptions and correctness checks. Plan repeated profiled and unprofiled runs and latency distributions. Community dispatch bottleneck reports motivate attribution but are not established single-card outcomes.
 
+Reusable model-optimization recipes, applied as relevant to a new or existing model: (1) pin model/tokenizer revisions, quantization, host, software, inputs, context, output length, batch and concurrency on one card; (2) check loading, fixed smoke output and suitable correctness references, recording stage-specific failures; (3) retain repeated unprofiled cold startup, TTFT, prefill, warm decode, memory, capacity and stability measurements, separating per-request latency from aggregate throughput; (4) map actual compilation, cache reuse, dynamic shapes and supported graph controls; (5) trace a warmed workload, inspect host/device activity, dependencies, TPC/MME/transfers and costly shapes/layouts without summing overlapping durations; (6) inspect the existing compiled implementation and data movement before proposing SRAM placement or a custom kernel; (7) conditionally investigate checkpoint format and conversion, MoE routing, attention/KV and long context, batching, and speculative decoding, recording not applicable or not tested; (8) test one specific hypothesis against the pinned baseline, measure the complete operation and integrated throughput/latency, memory and correctness, repeat runs and retain regressions or null results. Do not infer that a new model necessarily needs a new kernel or that a hypothesized bottleneck is measured.
+
 - Kind: Question
 - Status: active
 - Area: software-stack
 - Document date: 2026-10-03
-- Retrieved: 2026-11-07
+- Retrieved: 2026-11-09
 - Scope: not separately stated
-- Topics: graph, dispatch, replay, profiling
+- Topics: graph, dispatch, replay, profiling, model-optimization, recipes
 - Basis Entries: `gaudi2-exec-modes`, `warmup-graph-cache-cost`, `discord-gaudi2-dispatch-overhead-resident-graphs`
 - Omitted private support records: 0
 
@@ -1748,3 +1750,23 @@ Intel Gaudi documentation 1.24.2 describes varying input shapes and dynamic-outp
 - **Handling Dynamic Shapes — Gaudi Documentation 1.24.2 documentation** (`intel-gaudi-dynamic-shapes-bucketing-1242`)
   - Locator: https://docs.habana.ai/en/latest/PyTorch/Model_Optimization_PyTorch/Dynamic_Shapes.html
   - Support: Documents changing input shapes and dynamic ops as causes of recompilation, diagnostics, and the compilation-versus-padding tradeoff of bucket count.
+
+## decision-model-optimization-playbook
+
+**Treat a reusable single-card model-optimization playbook as an important path to the project objective for existing and new models.**
+
+Owner requests a durable, prominent list of practical optimization recipes that future sessions and agents can use. Apply recipes conditionally to the actual model and workload, retain results and limitations, and build on the existing warmed-decode investigation rather than assuming every model requires a new kernel. This complements, rather than replaces, the single-card access and bring-up work.
+
+- Kind: Decision
+- Status: active
+- Area: performance
+- Document date: 2026-11-09
+- Retrieved: 2026-11-09
+- Scope: topology: single-card
+- Topics: model-optimization, recipes, single-card, agent-direction
+- Basis Entries: none
+- Omitted private support records: 0
+
+### Citations
+
+No public citation retained.

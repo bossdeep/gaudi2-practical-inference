@@ -3,12 +3,12 @@ generated: true
 generator: opencat-research
 projectId: gaudi2-practical-inference
 objectiveId: gaudi2-practical-inference
-acceptedRevision: 20
+acceptedRevision: 21
 doNotEdit: true
 ---
 # Gaudi 2 practical inference
 
-Accepted research state published by [OpenCat Research](https://gaudi.clarion.run/projects/gaudi2-practical-inference). Revision **20** · generated 2026-11-09T06:31:40.154Z · [machine corpus](corpus/corpus.json) · [integrity manifest](MANIFEST.json).
+Accepted research state published by [OpenCat Research](https://gaudi.clarion.run/projects/gaudi2-practical-inference). Revision **21** · generated 2026-11-09T08:04:40.825Z · [machine corpus](corpus/corpus.json) · [integrity manifest](MANIFEST.json).
 
 ## Objective
 
@@ -68,7 +68,7 @@ Inputs: [Gaudi 2 hardware access for reproducible tests](context/EVIDENCE.md#nee
 
 ## Decisions
 
-No steering decisions.
+- [Treat a reusable single-card model-optimization playbook as an important path to the project objective for existing and new models.](context/EVIDENCE.md#decision-model-optimization-playbook) (2026-11-09)
 
 ## Queue
 
